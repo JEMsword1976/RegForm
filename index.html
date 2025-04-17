@@ -1,0 +1,2606 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國際基甸會中華民國總會第69週年全國年會</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <style>
+:root {
+    --primary-color: #D4AF37;
+    --secondary-color: #B8972A;
+    --text-color: #4A3C2A;
+    --error-color: #A52A2A;
+    --highlight-color: #8B0000;
+    --sister-color: #CA147C;
+    --bg-gradient: linear-gradient(135deg, #FFF9E6 0%, #FEF7D5 100%);
+    --bg-light: #FFFDF9;
+    --bg-highlight: #FEF7D5;
+    --shadow: 0 4px 12px rgba(212, 175, 37, 0.2);
+    --shadow-input: 0 2px 4px rgba(212, 175, 37, 0.15);
+    --shadow-focus: 0 0 8px rgba(212, 175, 37, 0.4);
+    --shadow-button: 0 6px 16px rgba(212, 175, 37, 0.5);
+    --font-size-base: 1rem;
+    --font-size-large: 1.2rem;
+    --font-size-small: 0.9rem;
+    --padding-base: 10px 12px;
+    --gap-base: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px;
+    padding: 30px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--primary-color);
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(212, 175, 37, 0.3);
+    border-left: 8px solid var(--primary-color);
+    padding-left: 20px;
+    border-radius: 6px 0 0 6px;
+    background: var(--bg-highlight);
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+p {
+    text-align: center;
+    color: #6B4E31;
+    font-size: var(--font-size-base);
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: var(--font-size-large);
+    color: var(--primary-color);
+    font-weight: 700;
+    padding: 10px 20px;
+    background: var(--bg-highlight);
+    border-left: 5px solid var(--primary-color);
+    border-radius: 6px 0 0 6px;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(212, 175, 37, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-base);
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-base);
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label,
+.form-group-inline label,
+.checkbox-row span,
+.accommodation-label,
+.accommodation-options label,
+.hotel-label,
+.hotel-selection label {
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    font-weight: 500;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.form-group-inline select,
+.form-group-inline input {
+    padding: 10px 8px; /* 原為 10px 12px，左右減小到 8px */
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    background: var(--bg-light);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: var(--shadow-input);
+}
+
+.form-group select,
+.form-group-inline select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%234A3C2A' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.form-group-inline input:focus,
+.form-group-inline select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    background: #FFFFFF;
+    box-shadow: var(--shadow-focus);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    border-radius: 6px;
+}
+
+.required {
+    color: var(--error-color);
+    font-size: var(--font-size-base);
+    margin-left: 5px;
+}
+
+.form-group.checkbox-group {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group input[type="checkbox"],
+.form-group input[type="radio"],
+.accommodation-options input[type="radio"],
+.hotel-selection input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.form-group .checkbox-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    padding: 8px;
+    background: var(--bg-light);
+    border-radius: 6px;
+}
+
+.form-group .checkbox-row input[type="text"],
+.shared-name-input {
+    width: 160px;
+    border-radius: 6px;
+}
+
+.form-group input[type="number"],
+.meal-ticket-row input,
+.meal-item-amount input[type="number"],
+.credit-card-row input,
+.expire-date-row input,
+.form-group #accountLastFive,
+.form-group #mealAccountLastFive {
+    width: 60px;
+    padding: var(--padding-base);
+    text-align: center;
+    padding: 8px 6px;
+}
+
+.credit-card-row,
+.expire-date-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.credit-card-row input,
+.expire-date-row input {
+    text-align: center;
+    border-radius: 6px;
+}
+
+.credit-input.invalid,
+.meal-credit-input.invalid {
+    border-color: var(--error-color);
+    box-shadow: 0 0 6px rgba(165, 42, 42, 0.3);
+}
+
+.meal-ticket-amount,
+.youth-subtotal,
+.meal-total-amount,
+.total-amount {
+    font-weight: 700;
+    color: var(--highlight-color);
+}
+
+.meal-ticket-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: var(--bg-light);
+    border-radius: 6px;
+}
+
+.meal-container,
+.youth-container,
+.bank-info-container {
+    width: 100%;
+    background: var(--bg-highlight);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 5px; /* 縮減至 5px */
+    box-shadow: 0 2px 6px rgba(212, 175, 37, 0.1);
+}
+
+.meal-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid var(--primary-color);
+    background: var(--bg-light);
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.meal-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.meal-item.total {
+    background: var(--bg-highlight);
+    font-weight: 700;
+    border-top: 2px solid var(--primary-color);
+    border-radius: 0 0 6px 6px;
+}
+
+.meal-item-label,
+.meal-item-price,
+.meal-item-amount,
+.youth-row .youth-label,
+.youth-row .gender-options label {
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+}
+
+.meal-item-label {
+    flex: 2;
+    font-weight: 500;
+}
+
+.meal-item-price {
+    flex: 1;
+    text-align: center;
+}
+
+.meal-item-amount {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.meal-item-label.sister,
+.meal-item-price.sister {
+    color: var(--sister-color);
+}
+
+.youth-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 10px;
+    background: var(--bg-light);
+    border-bottom: 1px solid var(--primary-color);
+    align-items: center;
+    border-radius: 6px;
+}
+
+.youth-row:first-child {
+    background: var(--bg-highlight);
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary-color);
+    border-radius: 6px 6px 0 0;
+}
+
+.youth-row .youth-label {
+    text-align: center;
+    font-weight: 500;
+}
+
+.youth-row .gender-options {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.youth-container {
+    overflow-x: auto;
+}
+
+.hotel-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 0 8px 8px 8px;
+    background: var(--bg-light);
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(212, 175, 37, 0.1);
+}
+
+.hotel-content.active {
+    display: block;
+}
+
+button {
+    padding: 14px 24px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(212, 175, 37, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    box-shadow: var(--shadow-button);
+    transform: translateY(-3px);
+}
+
+.result {
+    margin-top: 25px;
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+    display: none;
+    box-shadow: 0 2px 6px rgba(212, 175, 37, 0.1);
+}
+
+.result h3 {
+    color: var(--primary-color);
+    font-size: var(--font-size-large);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.result p {
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+    margin: 6px 0;
+    text-align: left;
+}
+
+.bank-info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+}
+
+.bank-label {
+    font-weight: 500;
+    width: 90px;
+    color: var(--secondary-color);
+}
+
+.bank-detail {
+    flex: 1;
+    padding-left: 12px;
+}
+
+.amount-row {
+    margin-top: 12px;
+}
+
+.amount-highlight {
+    font-weight: 700;
+}
+
+.bank-note {
+    display: inline;
+    font-size: 0.85rem;
+    color: var(--error-color);
+    font-weight: 500;
+    margin-top: 6px;
+    padding-left: 102px;
+}
+
+.note-row {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.fade-in-out {
+    animation: fadeInOut 0.3s ease-in-out;
+}
+
+.discount-info {
+    font-size: 0.85rem;
+    color: var(--error-color);
+    margin-left: 12px;
+    font-style: italic;
+}
+
+.amount-text,
+.amount-input {
+    width: 12ch;
+    text-align: right;
+    padding: 0 6px;
+}
+
+.amount-prefix {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.amount-input {
+    border: none;
+    background: transparent;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    display: inline-block;
+    font-weight: 700;
+    color: var(--highlight-color);
+}
+
+.form-group-inline {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    min-width: calc(50% - 10px);
+    max-width: calc(50% - 10px);
+}
+
+.accommodation-type {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px; /* 各區塊之間間距 */
+}
+
+.accommodation-options,
+.hotel-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-base);
+    padding: 8px;
+    background: var(--bg-light);
+    border-radius: 6px;
+}
+
+.accommodation-label {
+    font-size: var(--font-size-large); /* 與 section-title 一致 */
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 8px; /* 與下方內容保持適當間距 */
+    display: block; /* 獨占一行 */
+}
+
+.basic-info-row {
+    gap: 8px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+        width: calc(100% - 20px);
+    }
+
+    h1 {
+        font-size: 1.4rem;
+        text-align: left;
+        padding-left: 10px;
+        border-left: 6px solid var(--primary-color);
+    }
+
+    h2 {
+        font-size: 1.1rem;
+        text-align: left;
+    }
+
+    p {
+        font-size: 0.85rem;
+        text-align: left;
+    }
+
+    .section-title {
+        font-size: 1rem;
+        padding: 8px 12px;
+        margin-bottom: 0px; /* 保持貼近 */
+    }
+
+    .form-row {
+        gap: 10px;
+    }
+
+    .form-group {
+        min-width: 100%;
+        gap: 5px;
+    }
+
+    .form-group label,
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .form-group-inline label,
+    .form-group-inline select,
+    .form-group-inline input,
+    .checkbox-row span,
+    .youth-row .youth-label,
+    .youth-row .gender-options label,
+    .meal-item-label,
+    .meal-item-price,
+    .meal-item-amount,
+    .accommodation-label,
+    .accommodation-options label,
+    .hotel-label,
+    .hotel-selection label,
+    .bank-info-row,
+    .bank-detail,
+    .amount-row {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .form-group-inline select,
+    .form-group-inline input {
+        padding: 8px 3px;
+        border-radius: 5px;
+    }
+    /* 確保電話號碼欄位有足夠寬度 */
+    #phone1,
+    #phone2 {
+        min-width: 120px; /* 增加最小寬度，避免文字裁斷 */
+    }
+    .form-group select,
+    .form-group-inline select {
+        background-position: right 8px center;
+        background-size: 10px;
+    }
+
+    .form-group textarea {
+        min-height: 70px;
+    }
+
+    .required {
+        font-size: 0.9rem;
+    }
+
+    .form-group-inline {
+        gap: 8px;
+        min-width: calc(50% - 5px);
+        max-width: calc(50% - 5px);
+    }
+
+    .form-group .checkbox-row {
+        gap: 8px;
+        margin-bottom: 10px;
+        padding: 6px;
+    }
+
+    .form-group .checkbox-row input[type="text"],
+    .shared-name-input {
+        width: 130px;
+    }
+
+    .form-group input[type="number"],
+    .meal-ticket-row input,
+    .meal-item-amount input[type="number"],
+    .credit-card-row input,
+    .expire-date-row input {
+        width: 55px;
+        padding: 8px 10px;
+    }
+
+    .meal-ticket-row {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .meal-container,
+    .youth-container {
+        padding: 8px;
+        margin-top: 5px; /* 保持貼近 */
+    }
+
+   @media (max-width: 600px) {
+    /* 調整 meal-item 的內邊距和間距 */
+    .meal-item {
+        gap: 4px; /* 原為 8px，減小間距 */
+        padding: 6px; /* 原為 8px，減小內邊距 */
+        flex-wrap: nowrap; /* 確保不換行 */
+    }
+
+    /* 調整每個子元素的寬度和對齊 */
+    .meal-item-label {
+        flex: 1 1 80px; /* 原為 120px，減小基礎寬度 */
+        white-space: nowrap; /* 避免文字換行 */
+    }
+
+    .meal-item-price {
+        flex: 1 1 40px; /* 原為 60px，減小基礎寬度 */
+        white-space: nowrap;
+        text-align: center; /* 讓價格置中，視覺更緊湊 */
+    }
+
+    .meal-item-amount {
+        flex: 1 1 100px; /* 原為 120px，減小基礎寬度 */
+        gap: 4px; /* 原為 8px，減小內部間距 */
+        justify-content: flex-start; /* 靠左對齊 */
+        white-space: nowrap;
+    }
+
+    /* 調整 meal-item-amount 內部的 input 寬度 */
+    .meal-item-amount input[type="number"] {
+        width: 40px; /* 原為 55px，減小寬度 */
+        padding: 4px 2px; /* 減小內邊距 */
+    }
+
+    /* 調整文字大小，讓整體更緊湊 */
+    .meal-item-label,
+    .meal-item-price,
+    .meal-item-amount {
+        font-size: 0.85rem; /* 原為 0.9rem，稍微縮小 */
+    }
+}
+    .youth-row {
+        gap: 8px;
+        padding: 8px;
+        overflow-x: auto;
+    }
+
+    .youth-row .gender-options {
+        gap: 8px;
+    }
+
+    .hotel-content {
+        padding: 12px;
+    }
+
+    .bank-label {
+        width: 70px;
+        font-size: 0.9rem;
+    }
+
+    .bank-note {
+        font-size: 0.75rem;
+        padding-left: 82px;
+    }
+
+    .discount-info {
+        font-size: 0.75rem;
+    }
+
+    .amount-text,
+    .amount-input {
+        width: 10ch;
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+
+    .result h3 {
+        font-size: 1rem;
+    }
+
+    .result p {
+        font-size: 0.9rem;
+    }
+
+    .accommodation-options,
+    .hotel-selection {
+        flex-direction: column;
+        gap: 12px;
+        padding: 6px;
+    }
+
+    .accommodation-options input[type="radio"],
+    .hotel-selection input[type="radio"] {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+    }
+
+    .hotel-selection label {
+        width: 100%;
+        text-align: left;
+        justify-content: flex-start;
+    }
+
+    .accommodation-label {
+        font-size: 1rem; /* 小螢幕時縮減 */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        margin: 15px;
+        padding: 20px;
+        width: calc(100% - 30px);
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 0px; /* 保持貼近 */
+    }
+
+    .form-row {
+        gap: 12px;
+    }
+
+    .form-group {
+        min-width: 260px;
+    }
+
+    .form-group label,
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .form-group-inline label,
+    .form-group-inline select,
+    .form-group-inline input,
+    .accommodation-label,
+    .accommodation-options label,
+    .hotel-label,
+    .hotel-selection label {
+        font-size: 0.95rem;
+        padding: 8px 8px; /* 原為 8px 12px，左右減小到 8px */
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .form-group-inline select,
+    .form-group-inline input {
+        padding: 8px 12px;
+    }
+
+    .form-group .checkbox-row input[type="text"] {
+        width: 140px;
+    }
+
+    .form-group input[type="number"] {
+        width: 60px;
+    }
+
+    .form-group-inline {
+        gap: 10px;
+        min-width: calc(50% - 6px);
+        max-width: calc(50% - 6px);
+    }
+
+    .accommodation-options,
+    .hotel-selection {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 8px;
+    }
+
+    .hotel-selection label {
+        flex: 1;
+        min-width: 0;
+        text-align: center;
+    }
+
+    button {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+
+    .meal-container,
+    .youth-container {
+        margin-top: 5px; /* 保持貼近 */
+    }
+
+    .accommodation-label {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        margin: 20px;
+        padding: 30px;
+        width: calc(100% - 40px);
+        max-width: 1200px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .form-group {
+        min-width: 320px;
+    }
+
+    .form-group .checkbox-row input[type="text"] {
+        width: 160px;
+    }
+
+    .form-group input[type="number"] {
+        width: 70px;
+    }
+
+    .form-group-inline {
+        gap: 12px;
+        min-width: calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+
+    .hotel-selection {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .hotel-selection label {
+        flex: 1;
+        min-width: 0;
+        text-align: center;
+    }
+
+    button {
+        padding: 14px 24px;
+    }
+
+    .meal-container,
+    .youth-container {
+        margin-top: 5px; /* 保持貼近 */
+    }
+
+    .accommodation-label {
+        font-size: 1.2rem;
+    }
+}
+
+.amount-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--highlight-color);
+}
+
+.modal-content {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.modal-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.modal-content p {
+    text-align: left;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 15px;
+    border-top: 1px solid var(--primary-color);
+    background: var(--bg-light);
+}
+
+.modal-buttons button {
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.modal-buttons #returnBtn {
+    background: #ccc;
+    color: #333;
+    border: none;
+}
+
+.modal-buttons #returnBtn:hover {
+    background: #bbb;
+}
+
+.modal-buttons #confirmBtn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.modal-buttons #confirmBtn:hover {
+    background: var(--secondary-color);
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes checkmark {
+    0% { stroke-dasharray: 0 100; }
+    100% { stroke-dasharray: 100 0; }
+}
+
+.price-option {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    padding: 10px;
+    background: var(--bg-light);
+    border-radius: 6px;
+    justify-content: flex-start;
+}
+
+.price-option label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+#priceDisplay {
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    white-space: nowrap;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>國際基甸會中華民國總會第69週年全國年會</h1>
+        <h2><strong>年會報名表</strong>(含訂房、餐飲、小基甸活動) (2025.8.28-31)</h2>
+        <p>報名自2025年4月7日～2025年5月31日截止</p><p>報名表下載：<a href="https://drive.google.com/file/d/1u3NzXToaBiKDTf5XF1GqiC4NJ1L6Al2f/view?usp=drive_link" target="NEW">第69週年全國年會報名表.pdf</a></p>
+        <form id="reservationForm" action="https://script.google.com/macros/s/AKfycbwAOiFjcuNrN11vITq186eyG7fLdIuu385pagCeTVeqFiqXZ5Lu9iWQr5juBc4LnYzO/exec" method="POST" onsubmit="return submitForm()">
+            <div class="section-title">1. 基本資料</div>
+<div class="form-row basic-info-row">
+    <div class="form-group form-group-inline">
+        <label for="region"><strong>區域</strong></label>
+        <select id="region" name="region" onchange="updateBranches()">
+          <option value="">請選擇區域</option>
+            <option value="台北特區">台北特區</option>
+            <option value="北區">北區</option>
+            <option value="西北區">西北區</option>
+            <option value="台中特區">台中特區</option>
+            <option value="中區">中區</option>
+            <option value="中南區">中南區</option>
+            <option value="高雄特區">高雄特區</option>
+            <option value="南區">南區</option>
+            <option value="東區">東區</option>
+        </select>
+    </div>
+    <div class="form-group form-group-inline">
+        <label for="branch"><strong>支會</strong></label>
+        <select id="branch" name="branch">
+          <option value="">請先選擇區域</option>
+        </select>
+    </div>
+</div>
+<div class="form-row basic-info-row">
+    <div class="form-group form-group-inline">
+        <label for="name1"><strong>姓名 1</strong> *</label>
+        <input type="text" id="name1" name="name1" required/>
+    </div>
+    <div class="form-group form-group-inline">
+        <label for="name2"><strong>姓名 2</strong></label>
+        <input type="text" id="name2" name="name2"/>
+    </div>
+</div>
+<div class="form-row basic-info-row">
+    <div class="form-group form-group-inline">
+        <label for="phone1"><strong>電話 1</strong> *</label>
+        <input type="tel" id="phone1" name="phone1" placeholder="例：0988000111" required minlength="7" maxlength="10" pattern="\d{7,10}" oninvalid="this.setCustomValidity('請輸入7到10位數字，例如 028001111 或 0988000111')" oninput="this.setCustomValidity('')"/>
+    </div>
+    <div class="form-group form-group-inline">
+        <label for="phone2"><strong>電話 2</strong></label>
+        <input type="tel" id="phone2" name="phone2" placeholder="例：0988000111" minlength="7" maxlength="10" pattern="\d{7,10}" oninvalid="this.setCustomValidity('請輸入7到10位數字，例如 028001111 或 0988000111，若無可留空')" oninput="this.setCustomValidity('')"/>
+    </div>
+</div>
+
+            <div class="section-title" id="transportSection">2. 交通方式</div>
+            <div class="form-group checkbox-group" id="transportOptions">
+                <div class="checkbox-row">
+                    <label>
+                        <input type="radio" id="selfDriving" name="transport" value="自行開車"/>
+                        自行開車
+                  </label>
+                    <input type="text" id="carNumber" name="carNumber" placeholder="車號" style="display: none;"/>
+                    <label>
+                        <input type="radio" id="hsr" name="transport" value="高鐵"/>
+                        高鐵
+                  </label>
+                    <label>
+                        <input type="radio" id="tra" name="transport" value="台鐵"/>
+                        台鐵
+                  </label>
+                    <label>
+                        <input type="radio" id="bus" name="transport" value="客運"/>
+                        客運
+                  </label>
+                    <label>
+                        <input type="radio" id="other" name="transport" value="其他"/>
+                        其他
+                  </label>
+                </div>
+            </div>
+
+            <!-- 新增 2-1. 郊遊 -->
+            <div class="section-title" id="outingSection">2-1. 郊遊</div>
+            <div class="form-group checkbox-group" id="outingOptions">
+                <label><strong>8/29（五）上午板橋林家花園：</strong></label>
+                <div class="checkbox-row">
+                    <label>
+                        <input type="radio" id="outingYes" name="outingParticipation" value="是"/>
+                        參加
+                    </label>
+                    <input type="number" id="outingParticipants" name="outingParticipants" min="0" max="20" placeholder="人數" style="display: none;" />
+                    <label>
+                        <input type="radio" id="outingNo" name="outingParticipation" value="否"/>
+                        否
+                    </label>
+                </div>
+            </div>
+
+<div class="section-title" id="accommodationSection">3. 住宿選擇</div>
+<div class="form-group checkbox-group" id="accommodationOptions">
+    <div class="accommodation-type">
+    <label class="accommodation-label"><strong>3-1 住宿發票</strong></label>
+    <div class="checkbox-row">
+        <input type="text" id="companyName" name="companyName" placeholder="公司全名"/>
+        <input type="text" id="companyId" name="companyId" placeholder="公司統編" maxlength="8" pattern="\d{8}" oninvalid="this.setCustomValidity('請輸入8位數字的公司統編，例如 12345678，若無可留空')" oninput="this.setCustomValidity('')"/>
+        <span>(發票由林軒旅行社開立;個人可省略勿填)</span>
+    </div>
+</div>
+    <div class="accommodation-type">
+        <label class="accommodation-label"><strong>3-2 單人或雙人：</strong></label>
+        <div class="accommodation-options">
+            <label>
+                <input type="radio" id="single" name="accommodationType" value="單人住宿"/>
+                單人住宿
+            </label>
+            <label>
+                <input type="radio" id="couple" name="accommodationType" value="夫妻合住"/>
+                夫妻合住
+            </label>
+            <label>
+                <input type="radio" id="shared" name="accommodationType" value="與人合住"/>
+                與人合住
+                <input type="text" id="sharedName" name="sharedName" placeholder="請輸入同住人姓名" style="display: none;" class="shared-name-input"/>
+            </label>
+            <label>
+                <input type="radio" id="arrangeShared" name="accommodationType" value="總會安排"/>
+                由總會安排與人合住
+            </label>
+        </div>
+    </div>
+</div>
+
+            <div class="form-group" id="housingOptions">
+                <div class="form-group checkbox-group">
+                     <label><strong>3-3 請選擇飯店：</strong></label>
+                     <div class="checkbox-row hotel-selection">
+                       
+                        <label>
+                          <input type="radio" id="hiltonHotel" name="hotelSelection" value="希爾頓飯店" onchange="selectHotelCheckbox(this)"/> 新板希爾頓酒店
+                       </label>
+                        <label>
+                            <input type="radio" id="caesarHotel" name="hotelSelection" value="凱撒大飯店" onchange="selectHotelCheckbox(this)"/> 板橋凱撒大飯店
+                       </label>
+                        <label>
+                            <input type="radio" id="funHotel" name="hotelSelection" value="趣淘漫旅" onchange="selectHotelCheckbox(this)"/> 趣淘漫旅台北
+                       </label>
+                    </div>
+                </div>
+                <div id="hotelContent1" class="hotel-content">
+                    <h3>新板希爾頓飯店</h3>
+                    <div class="checkbox-row">
+                        <span>雙人房一大床：</span>
+                        <label>
+                          <input type="checkbox" name="roomDate" value="雙人房一大床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房一大床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房二小床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房二小床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                </div>
+                <div id="hotelContent2" class="hotel-content">
+                    <h3>板橋凱撒大飯店</h3>
+                    <div class="checkbox-row">
+                        <span>單人房一大床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房一大床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房二小床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                </div>
+                <div id="hotelContent3" class="hotel-content">
+                    <h3>趣淘漫旅台北</h3>
+                    <div class="checkbox-row">
+                        <span>單人房一大床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房一大床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房二小床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                </div>
+                <input type="hidden" id="hotel" name="hotel"/>
+            </div>
+            <div class="form-group" id="priceOptionsContainer" style="display: none;">
+                <label><strong>價格選項</strong></label>
+                <div id="priceOptions" class="price-option">
+                    <label><input type="radio" name="paymentType" value="cash" onchange="togglePaymentSections()"/> 現金付款</label>
+                    <label><input type="radio" name="paymentType" value="card" onchange="togglePaymentSections()"/> 刷卡付款</label>
+                    <span id="priceDisplay"></span>
+                    <span id="discountInfo" class="discount-info"></span>
+                </div>
+            </div>
+
+            <div id="creditPaymentSection" style="display: none;">
+    <div class="section-title" id="creditSection">4 飯店刷卡資訊</div>
+    <div class="form-group bank-info-container">
+        <div id="creditNumberOptions">
+            <label for="creditNumber">信用卡號</label>
+            <div class="credit-card-row">
+                <input type="text" id="creditNumber1" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input"/>
+                <span>-</span>
+                <input type="text" id="creditNumber2" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input"/>
+                <span>-</span>
+                <input type="text" id="creditNumber3" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input"/>
+                <span>-</span>
+                <input type="text" id="creditNumber4" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input"/>
+            </div>
+            <span id="creditNumberError" style="color: var(--error-color); font-size: 0.9rem; display: none;"></span>
+        </div>
+        <div class="form-group" id="expireDateOptions">
+            <label for="expireDate">信用卡有效期限 (月/年)</label>
+            <div class="expire-date-row">
+                <input type="text" name="expireMonth" maxlength="2" placeholder="MM" class="expire-month"/>
+                <span>/</span>
+                <input type="text" name="expireYear" maxlength="2" placeholder="YY" class="expire-year"/>
+            </div>
+        </div>
+       <div class="form-group" id="amountOptions">
+    <label for="hotelTotalAmount">飯店刷卡金額</label>
+    <span>
+        <span class="amount-prefix">NT$ </span>
+        <span id="hotelTotalAmount" class="amount-value">0</span>
+        <input type="hidden" id="hotelTotalAmountHidden" name="hotelTotalAmount" value="0"/>
+    </span>
+</div>
+    </div>
+</div>
+
+           <div id="transferPaymentSection" style="display: none;">
+    <div class="section-title" id="transferSection">4 飯店匯款資訊</div>
+    <div class="form-group">
+        <div class="bank-info-container">
+            <div class="bank-info-row">
+                <span class="bank-label">銀行：</span>
+                <span class="bank-detail">中華郵政</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">代號：</span>
+                <span class="bank-detail">700</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">帳號：</span>
+                <span class="bank-detail">0021009-1815261</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">戶名：</span>
+                <span class="bank-detail">社團法人國際基甸會中華民國總會</span>
+            </div>
+            <div class="bank-info-row amount-row">
+                <span class="bank-label">金額：</span>
+                <span class="bank-detail amount-highlight">
+                    <span class="amount-prefix">NT$ </span>
+                    <span id="hotelCashAmount" class="amount-value">0</span>
+                </span>
+            </div>
+           <div class="bank-info-row note-row">
+    <span class="bank-note">※ 請提供匯款帳號末五碼</span>
+    <input type="text" id="accountLastFive" name="accountLastFive" maxlength="5" placeholder="_ _ _ _ _" pattern="\d{5}" title="請輸入5位數字"/>
+</div>
+        </div>
+    </div>
+</div>
+<div class="form-group"> <strong> 請選擇訂房刷卡單照片上傳 </strong>
+  <input type="file" id="hotelFileInput" name="hotelFileInput" accept="image/*">
+</DIV>
+  
+          <div class="section-title" id="mealTicketSection">5. 全套餐劵訂購 （含各餐共4張，第四張請選擇弟兄 或 姊妹）</div>
+            <div class="form-group" id="mealTicketOptions">
+    <div class="meal-ticket-row" id="mealTicketCombinedRow">
+        <span><strong>全套餐券優惠價</strong> 4,300 元 ×</span>
+        <input type="number" id="mealTicketCount" name="mealTicketCount" min="0" max="20"/>
+        <span>張 = <span id="mealTicketAmount" class="meal-ticket-amount">0</span> 元</span>
+        <span class="meal-ticket-label"><strong>週六午餐：</strong>弟兄</span>
+        <input type="number" id="brotherCount" name="brotherCount" min="0" max="20"/>
+        <span>張 或 姊妹</span>
+        <input type="number" id="sisterCount" name="sisterCount" min="0" max="20" />
+        <span>張</span>
+    </div>
+    <span id="mealCountError" style="color: var(--error-color); font-size: 0.9rem; display: none;">※ 提示：全套餐券數量必須等於「弟兄數量 和 姊妹數量」請修正！</span>
+    <div class="section-title" id="mealTicketSection">5-1 餐劵單購</div>
+    <div class="meal-container">
+                    <div class="meal-item">
+                        <div class="meal-item-label">8/28(四)晚餐</div>
+                        <div class="meal-item-price">1,300 X</div>
+                        <div class="meal-item-amount">
+                            <input type="number" id="meal28DinnerCount" name="meal28DinnerCount" min="0" max="20"/>
+                            <span>張=</span>
+                            <span id="meal28DinnerTotal" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+                    <div class="meal-item">
+                        <div class="meal-item-label">8/29(五)自助式午餐</div>
+                        <div class="meal-item-price">1,000 X</div>
+                        <div class="meal-item-amount">
+                            <input type="number" id="meal29LunchCount" name="meal29LunchCount" min="0"  min="0" max="20"/>
+                            <span>張=</span>
+                            <span id="meal29LunchTotal" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+                    <div class="meal-item">
+                        <div class="meal-item-label">8/29(五)牧師宴</div>
+                        <div class="meal-item-price">1,300 X</div>
+                        <div class="meal-item-amount">
+                            <input type="number" id="meal29DinnerCount" name="meal29DinnerCount" min="0" min="0" max="20"/>
+                            <span>張=</span>
+                            <span id="meal29DinnerTotal" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+                    <div class="meal-item">
+                        <div class="meal-item-label">8/30(六)弟兄自助式午餐</div>
+                        <div class="meal-item-price">1,000 X</div>
+                        <div class="meal-item-amount">
+                            <input type="number" id="meal30BrotherLunchCount" name="meal30BrotherLunchCount" min="0" min="0" max="20"/>
+                            <span>張=</span>
+                            <span id="meal30BrotherLunchTotal" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+                    <div class="meal-item">
+                        <div class="meal-item-label sister">8/30(六)姊妹自助式午餐</div>
+                        <div class="meal-item-price sister">1,000 X</div>
+                        <div class="meal-item-amount">
+                            <input type="number" id="meal30SisterLunchCount" name="meal30SisterLunchCount" min="0" min="0" max="20"/>
+                            <span>張=</span>
+                            <span id="meal30SisterLunchTotal" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+                    <div class="meal-item total">
+                        <div class="meal-item-label">合計</div>
+                        <div class="meal-item-amount">
+                            <span id="mealTotalAmount" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+                </div>
+          </div>
+
+           <div class="section-title" id="youthSection">6. 小基甸活動</div>
+<div class="form-group" id="youthOptions">
+    <div class="youth-container">
+        <div class="youth-row">
+            <div class="youth-label">姓名</div>
+            <div class="youth-label">性別</div>
+            <div class="youth-label">生日</div>
+            <div class="youth-label">身分證字號</div>
+        </div>
+        <div class="youth-row">
+            <input type="text" name="youthName1" id="youthName1" placeholder="姓名"/>
+            <div class="gender-options">
+                <label><input type="radio" name="youthGender1" value="男"/> 男</label>
+                <label><input type="radio" name="youthGender1" value="女"/> 女</label>
+            </div>
+            <input type="text" name="youthBirthdate1" id="youthBirthdate1" placeholder="例：19990101" class="youth-birthdate"/>
+            <input type="text" name="youthId1" id="youthId1" maxlength="10" placeholder="例：A123666888" class="youth-id"/>
+        </div>
+        <div class="youth-row">
+            <input type="text" name="youthName2" id="youthName2" placeholder="姓名"/>
+            <div class="gender-options">
+                <label><input type="radio" name="youthGender2" value="男"/> 男</label>
+                <label><input type="radio" name="youthGender2" value="女"/> 女</label>
+            </div>
+            <input type="text" name="youthBirthdate2" id="youthBirthdate2" placeholder="例：19990101" class="youth-birthdate"/>
+            <input type="text" name="youthId2" id="youthId2" maxlength="10" placeholder="例：A123666888" class="youth-id"/>
+        </div>
+        <div class="youth-row">
+            <input type="text" name="youthName3" id="youthName3" placeholder="姓名"/>
+            <div class="gender-options">
+                <label><input type="radio" name="youthGender3" value="男"/> 男</label>
+                <label><input type="radio" name="youthGender3" value="女"/> 女</label>
+            </div>
+            <input type="text" name="youthBirthdate3" id="youthBirthdate3" placeholder="例：19990101" class="youth-birthdate"/>
+            <input type="text" name="youthId3" id="youthId3" maxlength="10" placeholder="例：A123666888" class="youth-id"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>小計：<span id="youthSubtotal" class="youth-subtotal">0</span> 人 × 1,000 元 = <span id="youthTotal" class="youth-subtotal">0</span> 元</label>
+        <label><strong>總計：餐劵費用(<span id="mealTotalDisplay" class="total-amount">0</span>)+活動費用(<span id="youthTotalDisplay" class="total-amount">0</span>)=<span id="grandTotal" class="total-amount">0</span> 元</strong></label>
+    </div>
+</div>
+
+            <div class="form-group" id="mealPaymentOptions">
+                <label><strong>6-1 餐劵及活動費付款方式</strong></label>
+                <div class="price-option">
+                  <label><input type="radio" name="mealPaymentMethod" value="cash" onchange="toggleMealPaymentSections()"/> 現金付款</label>
+                    <label><input type="radio" name="mealPaymentMethod" value="card" onchange="toggleMealPaymentSections()"/> 刷卡付款</label>
+                </div>
+            </div>
+
+            <div id="mealTransferPaymentSection" style="display: none;">
+    <div class="section-title" id="mealTransferSection">7. 餐券及小基甸活動匯款</div>
+    <div class="form-group">
+        <div class="bank-info-container">
+            <div class="bank-info-row">
+                <span class="bank-label">銀行：</span>
+                <span class="bank-detail">中華郵政</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">代號：</span>
+                <span class="bank-detail">700</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">帳號：</span>
+                <span class="bank-detail">0021009-1815261</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">戶名：</span>
+                <span class="bank-detail">社團法人國際基甸會中華民國總會</span>
+            </div>
+            <div class="bank-info-row amount-row">
+                <span class="bank-label">金額：</span>
+                <span class="bank-detail amount-highlight">
+                    <span class="amount-prefix">NT$ </span>
+                    <span id="mealGrandTotalAmountCash" class="amount-value">0</span>
+                </span>
+            </div>
+            <div class="bank-info-row note-row">
+    <span class="bank-note">※ 請務必提供帳號末五碼</span>
+    <input type="text" id="mealAccountLastFive" name="mealAccountLastFive" maxlength="5" placeholder="_ _ _ _ _" pattern="\d{5}" title="請輸入5位數字"/>
+</div>
+        </div>
+    </div>
+</div>
+
+           <div id="mealCreditPaymentSection" style="display: none;">
+    <div class="section-title" id="mealCreditSection">7. 餐券及小基甸活動費刷卡付款資訊</div>
+    <div class="form-group bank-info-container">
+        <div class="form-group" id="mealCreditNumberOptions">
+            <label for="mealCreditNumber">信用卡號</label>
+            <div class="credit-card-row">
+                <input type="text" id="mealCreditNumber1" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input"/>
+                <span>-</span>
+                <input type="text" id="mealCreditNumber2" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input"/>
+                <span>-</span>
+                <input type="text" id="mealCreditNumber3" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input"/>
+                <span>-</span>
+                <input type="text" id="mealCreditNumber4" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input"/>
+            </div>
+            <span id="mealCreditNumberError" style="color: var(--error-color); font-size: 0.9rem; display: none;"></span>
+        </div>
+        <div class="form-group" id="mealExpireDateOptions">
+            <label for="mealExpireDate">信用卡有效期限 (月/年)</label>
+            <div class="expire-date-row">
+                <input type="text" name="mealExpireMonth" maxlength="2" placeholder="MM" class="meal-expire-month"/>
+                <span>/</span>
+                <input type="text" name="mealExpireYear" maxlength="2" placeholder="YY" class="meal-expire-year"/>
+            </div>
+        </div>
+       <div class="form-group" id="mealAmountOptions">
+    <label for="mealGrandTotalAmountCard">餐券及活動刷卡金額 (NT$)</label>
+    <span>
+        <span class="amount-prefix">NT$ </span>
+        <span id="mealGrandTotalAmountCard" class="amount-value">0</span>
+        <input type="hidden" id="mealGrandTotalAmountCardHidden" name="mealGrandTotalAmountCard" value="0"/>
+    </span>
+</div>
+    </div>
+</div>
+
+            <div class="form-group"> <strong> 請選擇餐券刷卡單照片上傳</strong>
+              <input type="file" id="mealFileInput" name="mealFileInput" accept="image/*">
+              <label for="specialRequests"><strong>特別備註</strong></label>
+                <textarea id="specialRequests" name="specialRequests" rows="4"></textarea>
+          </div>
+            <input type="hidden" id="youthTotalHidden" name="youthTotal" value="0"/>
+            <input type="hidden" id="hotelFinalAmount" name="hotelFinalAmount" value="0"/>
+            <button type="submit">送出報名</button>
+        </form><div id="result" class="result"></div>
+	</div>
+  <script>
+const branchesByRegion = {
+    '台北特區': ['北一', '北二', '北三', '北四', '北五', '北六', '北七', '北八', '北九', '北十', '金門', '馬祖'],
+    '北區': ['基隆', '汐止', '淡水', '雙和', '板橋', '海山', '三重', '新莊'],
+    '西北區': ['林口', '蘆竹', '桃園', '中壢', '龍潭', '新竹', '竹北', '苗北'],
+    '台中特區': ['苗栗', '大甲', '豐原', '中港', '中一', '中二', '中三', '中四'],
+    '中區': ['南投', '埔里', '彰化', '員林', '二林', '雲林'],
+    '中南區': ['嘉義', '朴子', '新營', '佳里', '南一', '南二', '南三'],
+    '高雄特區': ['澎湖', '高一', '高二', '高三', '高四', '高五'],
+    '南區': ['岡山', '旗美', '鳳山', '屏東', '潮州', '恆春'],
+    '東區': ['羅東', '宜蘭', '花一', '花二', '玉里', '台東']
+};
+
+const hotelData = {
+    '希爾頓飯店': {
+        '雙人房一大床 8/28(四)': { price: { cash: 4700, card: 4800 }, capacity: 2 },
+        '雙人房一大床 8/29(五)': { price: { cash: 4900, card: 5000 }, capacity: 2 },
+        '雙人房一大床 8/30(六)': { price: { cash: 4900, card: 5000 }, capacity: 2 },
+        '雙人房二小床 8/28(四)': { price: { cash: 4900, card: 5000 }, capacity: 2 },
+        '雙人房二小床 8/29(五)': { price: { cash: 5100, card: 5200 }, capacity: 2 },
+        '雙人房二小床 8/30(六)': { price: { cash: 5100, card: 5200 }, capacity: 2 }
+    },
+    '凱撒大飯店': {
+        '單人房一大床 8/28(四)': { price: { cash: 4000, card: 4100 }, capacity: 1 },
+        '單人房一大床 8/29(五)': { price: { cash: 4000, card: 4100 }, capacity: 1 },
+        '單人房一大床 8/30(六)': { price: { cash: 4000, card: 4100 }, capacity: 1 },
+        '雙人房一大床 8/28(四)': { price: { cash: 4400, card: 4500 }, capacity: 2 },
+        '雙人房一大床 8/29(五)': { price: { cash: 4400, card: 4500 }, capacity: 2 },
+        '雙人房一大床 8/30(六)': { price: { cash: 4400, card: 4500 }, capacity: 2 },
+        '雙人房二小床 8/28(四)': { price: { cash: 4400, card: 4500 }, capacity: 2 },
+        '雙人房二小床 8/29(五)': { price: { cash: 4400, card: 4500 }, capacity: 2 },
+        '雙人房二小床 8/30(六)': { price: { cash: 4400, card: 4500 }, capacity: 2 }
+    },
+    '趣淘漫旅': {
+        '單人房一大床 8/28(四)': { price: { cash: 3200, card: 3300 }, capacity: 1 },
+        '單人房一大床 8/29(五)': { price: { cash: 3200, card: 3300 }, capacity: 1 },
+        '單人房一大床 8/30(六)': { price: { cash: 3200, card: 3300 }, capacity: 1 },
+        '雙人房一大床 8/28(四)': { price: { cash: 3600, card: 3700 }, capacity: 2 },
+        '雙人房一大床 8/29(五)': { price: { cash: 3600, card: 3700 }, capacity: 2 },
+        '雙人房一大床 8/30(六)': { price: { cash: 3600, card: 3700 }, capacity: 2 },
+        '雙人房二小床 8/28(四)': { price: { cash: 3600, card: 3700 }, capacity: 2 },
+        '雙人房二小床 8/29(五)': { price: { cash: 3600, card: 3700 }, capacity: 2 },
+        '雙人房二小床 8/30(六)': { price: { cash: 3600, card: 3700 }, capacity: 2 }
+    }
+};
+
+function formatNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function compressImage(file, maxSize = 1200, quality = 0.8) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+            img.src = e.target.result;
+        };
+
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            let width = img.width;
+            let height = img.height;
+
+            if (width > maxSize || height > maxSize) {
+                const ratio = Math.min(maxSize / width, maxSize / height);
+                width = width * ratio;
+                height = height * ratio;
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+
+            ctx.drawImage(img, 0, 0, width, height);
+
+            const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+            const base64Data = compressedDataUrl.split(',')[1];
+
+            const byteCharacters = atob(base64Data);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], { type: 'image/jpeg' });
+
+            const fileExt = file.name.split('.').pop();
+            const newFileName = file.name.replace(`.${fileExt}`, `_compressed.${fileExt}`);
+            resolve({ blob: new File([blob], newFileName, { type: 'image/jpeg' }), base64: base64Data });
+        };
+
+        img.onerror = reject;
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
+
+function updateBranches() {
+    const regionSelect = document.getElementById('region');
+    const branchSelect = document.getElementById('branch');
+    const selectedRegion = regionSelect.value;
+
+    branchSelect.innerHTML = '<option value="">請先選擇區域</option>';
+    if (selectedRegion && branchesByRegion[selectedRegion]) {
+        branchSelect.innerHTML = '<option value="">請選擇支會</option>';
+        branchesByRegion[selectedRegion].forEach(branch => {
+            const option = document.createElement('option');
+            option.value = branch;
+            option.textContent = branch;
+            branchSelect.appendChild(option);
+        });
+    }
+}
+
+function selectHotelCheckbox(radio) {
+    const hotelInput = document.getElementById('hotel');
+    const contents = document.querySelectorAll('.hotel-content');
+    const radios = document.querySelectorAll('input[name="hotelSelection"]');
+
+    contents.forEach(content => content.classList.remove('active'));
+
+    if (radio.checked) {
+        hotelInput.value = radio.value;
+
+        const contentId = `hotelContent${Array.from(radios).indexOf(radio) + 1}`;
+        document.getElementById(contentId).classList.add('active');
+    } else {
+        hotelInput.value = '';
+    }
+
+    document.querySelectorAll('input[name="roomDate"]').forEach(cb => cb.checked = false);
+    restrictRoomOptions();
+    updatePriceOptions();
+}
+
+function restrictRoomOptions() {
+    const accommodationType = document.querySelector('input[name="accommodationType"]:checked')?.value || '';
+    const selectedHotel = document.getElementById('hotel').value;
+    const roomCheckboxes = document.querySelectorAll('input[name="roomDate"]');
+    const isSharedOrArranged = accommodationType === '與人合住' || accommodationType === '總會安排';
+    const isSingle = accommodationType === '單人住宿';
+
+    const selectedDates = {};
+    roomCheckboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            const date = checkbox.getAttribute('data-date');
+            const roomType = checkbox.value.split(' ')[0];
+            if (!selectedDates[date]) {
+                selectedDates[date] = new Set();
+            }
+            selectedDates[date].add(roomType);
+        }
+    });
+
+    roomCheckboxes.forEach(checkbox => {
+        const roomType = checkbox.value.split(' ')[0];
+        const date = checkbox.getAttribute('data-date');
+        const isOneBigBed = roomType.includes('一大床');
+        const isTwoSmallBeds = roomType.includes('二小床');
+
+        checkbox.disabled = false;
+        checkbox.title = '';
+
+        if (isSharedOrArranged && isOneBigBed) {
+            checkbox.disabled = true;
+            checkbox.checked = false;
+            checkbox.title = '與人合住或總會安排時，僅限雙人房二小床';
+        }
+
+        if (isSingle && selectedHotel) {
+            if (selectedHotel === '希爾頓飯店') {
+                if (isTwoSmallBeds) {
+                    checkbox.disabled = true;
+                    checkbox.checked = false;
+                    checkbox.title = '單人住宿在新板希爾頓酒店只能選擇雙人房一大床';
+                }
+            } else if (selectedHotel === '凱撒大飯店') {
+                if (isTwoSmallBeds || (isOneBigBed && roomType === '雙人房一大床')) {
+                    checkbox.disabled = true;
+                    checkbox.checked = false;
+                    checkbox.title = '單人住宿在板橋凱撒大飯店只能選擇單人房一大床';
+                }
+            } else if (selectedHotel === '趣淘漫旅') {
+                if (isTwoSmallBeds || (isOneBigBed && roomType === '雙人房一大床')) {
+                    checkbox.disabled = true;
+                    checkbox.checked = false;
+                    checkbox.title = '單人住宿在趣淘漫旅台北只能選擇單人房一大床';
+                }
+            }
+        }
+
+        if (selectedDates[date] && !checkbox.checked && selectedDates[date].size > 0 && !selectedDates[date].has(roomType)) {
+            checkbox.disabled = true;
+            checkbox.title = '同一日期內只能選擇一種床型';
+        }
+    });
+
+    updatePriceOptions();
+}
+
+let currentCashPrice = 0;
+let currentCardPrice = 0;
+
+function updatePriceOptions() {
+    const selectedRoomDates = Array.from(document.querySelectorAll('input[name="roomDate"]:checked')).map(cb => cb.value);
+    const hotelInput = document.getElementById('hotel');
+    const selectedHotel = hotelInput.value;
+    const accommodationType = document.querySelector('input[name="accommodationType"]:checked')?.value || '';
+    const priceOptionsContainer = document.getElementById('priceOptionsContainer');
+    const priceDisplay = document.getElementById('priceDisplay');
+    const discountInfo = document.getElementById('discountInfo');
+    const paymentTypeRadios = document.querySelectorAll('input[name="paymentType"]');
+
+    priceOptionsContainer.style.display = 'none';
+    priceDisplay.textContent = '';
+    discountInfo.textContent = '';
+    paymentTypeRadios.forEach(radio => radio.checked = false);
+    togglePaymentSections();
+
+    if (selectedRoomDates.length > 0 && selectedHotel) {
+        let totalCashPrice = 0;
+        let totalCardPrice = 0;
+
+        selectedRoomDates.forEach(room => {
+            const roomData = hotelData[selectedHotel][room];
+            if (roomData) {
+                totalCashPrice += roomData.price.cash;
+                totalCardPrice += roomData.price.card;
+            }
+        });
+
+        const isShared = accommodationType === '與人合住' || accommodationType === '總會安排';
+        if (isShared) {
+            totalCashPrice = Math.round(totalCashPrice / 2);
+            totalCardPrice = Math.round(totalCardPrice / 2);
+        }
+
+        currentCashPrice = totalCashPrice;
+        currentCardPrice = totalCardPrice;
+
+        priceOptionsContainer.style.display = 'block';
+
+        priceDisplay.textContent = `( 現金付款: ${formatNumber(totalCashPrice)} 元 / 刷卡付款: ${formatNumber(totalCardPrice)} 元 )`;
+
+        if (isShared) {
+            discountInfo.textContent = '※已套用5折優惠價，只能選擇二小床房型。';
+        } else {
+            discountInfo.textContent = '※優惠價';
+        }
+
+        document.getElementById('hotelTotalAmount').textContent = formatNumber(totalCardPrice);
+        document.getElementById('hotelTotalAmountHidden').value = totalCardPrice;
+        document.getElementById('hotelCashAmount').textContent = formatNumber(totalCashPrice);
+    }
+}
+
+function togglePaymentSections() {
+    const paymentType = document.querySelector('input[name="paymentType"]:checked')?.value;
+    const creditSection = document.getElementById('creditPaymentSection');
+    const transferSection = document.getElementById('transferPaymentSection');
+
+    creditSection.style.display = 'none';
+    transferSection.style.display = 'none';
+
+    if (paymentType === 'card') {
+        creditSection.style.display = 'block';
+        creditSection.classList.add('fade-in-out');
+    } else if (paymentType === 'cash') {
+        transferSection.style.display = 'block';
+        transferSection.classList.add('fade-in-out');
+    }
+}
+
+function toggleMealPaymentSections() {
+    const mealPaymentMethod = document.querySelector('input[name="mealPaymentMethod"]:checked')?.value;
+    const mealCreditSection = document.getElementById('mealCreditPaymentSection');
+    const mealTransferSection = document.getElementById('mealTransferPaymentSection');
+
+    mealCreditSection.style.display = 'none';
+    mealTransferSection.style.display = 'none';
+
+    if (mealPaymentMethod === 'card') {
+        mealCreditSection.style.display = 'block';
+        mealCreditSection.classList.add('fade-in-out');
+    } else if (mealPaymentMethod === 'cash') {
+        mealTransferSection.style.display = 'block';
+        mealTransferSection.classList.add('fade-in-out');
+    }
+}
+
+function calculateMealTotal() {
+    const mealTicketCount = parseInt(document.getElementById('mealTicketCount').value) || 0;
+    const brotherCount = parseInt(document.getElementById('brotherCount').value) || 0;
+    const sisterCount = parseInt(document.getElementById('sisterCount').value) || 0;
+    const meal28DinnerCount = parseInt(document.getElementById('meal28DinnerCount').value) || 0;
+    const meal29LunchCount = parseInt(document.getElementById('meal29LunchCount').value) || 0;
+    const meal29DinnerCount = parseInt(document.getElementById('meal29DinnerCount').value) || 0;
+    const meal30BrotherLunchCount = parseInt(document.getElementById('meal30BrotherLunchCount').value) || 0;
+    const meal30SisterLunchCount = parseInt(document.getElementById('meal30SisterLunchCount').value) || 0;
+
+    const mealTicketTotal = mealTicketCount * 4300;
+    const meal28DinnerTotal = meal28DinnerCount * 1300;
+    const meal29LunchTotal = meal29LunchCount * 1000;
+    const meal29DinnerTotal = meal29DinnerCount * 1300;
+    const meal30BrotherLunchTotal = meal30BrotherLunchCount * 1000;
+    const meal30SisterLunchTotal = meal30SisterLunchCount * 1000;
+
+    document.getElementById('mealTicketAmount').textContent = formatNumber(mealTicketTotal);
+    document.getElementById('meal28DinnerTotal').textContent = formatNumber(meal28DinnerTotal);
+    document.getElementById('meal29LunchTotal').textContent = formatNumber(meal29LunchTotal);
+    document.getElementById('meal29DinnerTotal').textContent = formatNumber(meal29DinnerTotal);
+    document.getElementById('meal30BrotherLunchTotal').textContent = formatNumber(meal30BrotherLunchTotal);
+    document.getElementById('meal30SisterLunchTotal').textContent = formatNumber(meal30SisterLunchTotal);
+
+    const mealTotal = mealTicketTotal + meal28DinnerTotal + meal29LunchTotal + meal29DinnerTotal + meal30BrotherLunchTotal + meal30SisterLunchTotal;
+    document.getElementById('mealTotalAmount').textContent = formatNumber(mealTotal);
+
+    const mealCountError = document.getElementById('mealCountError');
+    if (mealTicketCount !== (brotherCount + sisterCount)) {
+        mealCountError.style.display = 'block';
+    } else {
+        mealCountError.style.display = 'none';
+    }
+
+    calculateGrandTotal();
+}
+
+function calculateYouthTotal() {
+    const youthNames = ['youthName1', 'youthName2', 'youthName3'];
+    let youthCount = 0;
+
+    youthNames.forEach(id => {
+        const nameInput = document.getElementById(id);
+        const name = nameInput.value.trim();
+        const birthdateInput = document.getElementById(`youthBirthdate${id.slice(-1)}`);
+        const idInput = document.getElementById(`youthId${id.slice(-1)}`);
+
+        if (name) {
+            birthdateInput.setAttribute('required', 'required');
+            idInput.setAttribute('required', 'required');
+            youthCount++;
+        } else {
+            birthdateInput.removeAttribute('required');
+            idInput.removeAttribute('required');
+            birthdateInput.value = '';
+            idInput.value = '';
+        }
+    });
+
+    const total = youthCount * 1000;
+    document.getElementById('youthSubtotal').textContent = youthCount;
+    document.getElementById('youthTotal').textContent = formatNumber(total);
+    document.getElementById('youthTotalHidden').value = total;
+
+    calculateGrandTotal();
+}
+
+function calculateGrandTotal() {
+    const mealTotal = parseInt(document.getElementById('mealTotalAmount').textContent.replace(/,/g, '')) || 0;
+    const youthTotal = parseInt(document.getElementById('youthTotal').textContent.replace(/,/g, '')) || 0;
+    const grandTotal = mealTotal + youthTotal;
+
+    document.getElementById('mealTotalDisplay').textContent = formatNumber(mealTotal);
+    document.getElementById('youthTotalDisplay').textContent = formatNumber(youthTotal);
+    document.getElementById('grandTotal').textContent = formatNumber(grandTotal);
+
+    document.getElementById('mealGrandTotalAmountCash').textContent = formatNumber(grandTotal);
+    document.getElementById('mealGrandTotalAmountCard').textContent = formatNumber(grandTotal);
+    document.getElementById('mealGrandTotalAmountCardHidden').value = grandTotal;
+}
+
+function toggleCarNumberInput() {
+    const selfDriving = document.getElementById('selfDriving');
+    const carNumberInput = document.getElementById('carNumber');
+    carNumberInput.style.display = selfDriving.checked ? 'inline-block' : 'none';
+}
+
+function toggleSharedNameInput() {
+    const sharedRadio = document.getElementById('shared');
+    const sharedNameInput = document.getElementById('sharedName');
+    sharedNameInput.style.display = sharedRadio.checked ? 'inline-block' : 'none';
+    restrictRoomOptions();
+    updatePriceOptions();
+}
+
+// 新增控制郊遊人數輸入欄位的函數
+function toggleOutingInput() {
+    const outingYes = document.getElementById('outingYes');
+    const outingParticipantsInput = document.getElementById('outingParticipants');
+    outingParticipantsInput.style.display = outingYes.checked ? 'inline-block' : 'none';
+    if (!outingYes.checked) {
+        outingParticipantsInput.value = '';
+    }
+}
+
+function checkFileSize(input) {
+    const maxSize = 10 * 1024 * 1024; // 10MB
+    if (input.files && input.files[0]) {
+        const fileSize = input.files[0].size;
+        if (fileSize > maxSize) {
+            alert('檔案大小超過 10MB 限制，請選擇較小的檔案。');
+            input.value = '';
+        }
+    }
+}
+
+function validateCreditCardInputs(inputs, errorElementId) {
+    const errorElement = document.getElementById(errorElementId);
+    let isValid = true;
+    let cardNumber = '';
+
+    inputs.forEach(input => {
+        const value = input.value.trim();
+        cardNumber += value;
+        if (!/^\d{4}$/.test(value)) {
+            input.classList.add('invalid');
+            isValid = false;
+        } else {
+            input.classList.remove('invalid');
+        }
+    });
+
+    if (!isValid) {
+        errorElement.textContent = '請確保每格信用卡號為4位數字';
+        errorElement.style.display = 'block';
+    } else if (cardNumber.length !== 16) {
+        errorElement.textContent = '信用卡號必須為16位數字';
+        errorElement.style.display = 'block';
+        isValid = false;
+    } else {
+        errorElement.style.display = 'none';
+    }
+
+    return isValid;
+}
+
+function submitForm() {
+    const form = document.getElementById('reservationForm');
+    const formData = new FormData(form);
+    const selectedRoomDates = Array.from(document.querySelectorAll('input[name="roomDate"]:checked')).map(cb => cb.value);
+    let selectedPaymentType = document.querySelector('input[name="paymentType"]:checked')?.value || '未選擇';
+    let selectedMealPaymentMethod = document.querySelector('input[name="mealPaymentMethod"]:checked')?.value || '未選擇';
+
+    calculateYouthTotal();
+
+    const youthNames = ['youthName1', 'youthName2', 'youthName3'];
+    for (let id of youthNames) {
+        const name = document.getElementById(id).value.trim();
+        const birthdate = document.getElementById(`youthBirthdate${id.slice(-1)}`).value.trim();
+        const youthId = document.getElementById(`youthId${id.slice(-1)}`).value.trim();
+
+        if (name && (!birthdate || !youthId)) {
+            alert('小基甸活動：若填寫姓名，生日和身份證字號為必填項，請補全資料');
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return false;
+        }
+    }
+
+    if (selectedPaymentType === 'card') {
+        if (!validateCreditCardInputs(creditInputs, 'creditNumberError')) {
+            alert('請修正飯店信用卡號輸入錯誤');
+            document.getElementById('creditNumber1').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return false;
+        }
+    }
+
+    if (selectedMealPaymentMethod === 'card') {
+        if (!validateCreditCardInputs(mealCreditInputs, 'mealCreditNumberError')) {
+            alert('請修正餐券信用卡號輸入錯誤');
+            document.getElementById('mealCreditNumber1').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return false;
+        }
+    }
+
+    const mealTicketCount = parseInt(document.getElementById('mealTicketCount').value) || 0;
+    const brotherCount = parseInt(document.getElementById('brotherCount').value) || 0;
+    const sisterCount = parseInt(document.getElementById('sisterCount').value) || 0;
+    if (mealTicketCount !== (brotherCount + sisterCount)) {
+        alert('全套餐券數量必須等於「弟兄數量 + 姊妹數量」，請修正後再送出');
+        document.getElementById('mealTicketCount').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return false;
+    }
+
+    const accountLastFive = document.getElementById('accountLastFive').value.trim();
+    const mealAccountLastFive = document.getElementById('mealAccountLastFive').value.trim();
+
+    if (selectedPaymentType === 'cash' && selectedRoomDates.length > 0 && !accountLastFive) {
+        alert('請填寫飯店匯款帳號末五碼');
+        document.getElementById('accountLastFive').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('accountLastFive').focus();
+        return false;
+    }
+
+    if (selectedMealPaymentMethod === 'cash' && (mealTicketCount > 0 || calculateYouthTotal() > 0) && !mealAccountLastFive) {
+        alert('請填寫餐券及活動匯款帳號末五碼');
+        document.getElementById('mealAccountLastFive').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('mealAccountLastFive').focus();
+        return false;
+    }
+
+    const branch = document.getElementById('branch').value || '未知支會';
+    const name1 = document.getElementById('name1').value || '未知姓名';
+    const timestamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0];
+
+    const hotelFileInput = document.getElementById('hotelFileInput');
+    const mealFileInput = document.getElementById('mealFileInput');
+
+    let newHotelFileName = '';
+    let newMealFileName = '';
+
+    if (hotelFileInput.files.length > 0) {
+        const hotelFile = hotelFileInput.files[0];
+        const hotelFileExt = hotelFile.name.split('.').pop();
+        newHotelFileName = `${branch}_${name1}_訂房_${timestamp}.${hotelFileExt}`;
+        const renamedHotelFile = new File([hotelFile], newHotelFileName, { type: hotelFile.type });
+        formData.delete('hotelFileInput');
+        formData.append('hotelFileInput', renamedHotelFile);
+    }
+
+    if (mealFileInput.files.length > 0) {
+        const mealFile = mealFileInput.files[0];
+        const mealFileExt = mealFile.name.split('.').pop();
+        newMealFileName = `${branch}_${name1}_餐券_${timestamp}.${mealFileExt}`;
+        const renamedMealFile = new File([mealFile], newMealFileName, { type: mealFile.type });
+        formData.delete('mealFileInput');
+        formData.append('mealFileInput', renamedMealFile);
+    }
+
+    const accommodationType = document.querySelector('input[name="accommodationType"]:checked')?.value || '未選擇';
+    const sharedName = document.getElementById('sharedName').value || '無';
+    const transportType = document.querySelector('input[name="transport"]:checked')?.value || '未選擇';
+    const carNumber = document.getElementById('carNumber').value || '無';
+    const outingParticipation = document.querySelector('input[name="outingParticipation"]:checked')?.value || '未選擇';
+    const outingParticipants = document.getElementById('outingParticipants').value || '0';
+
+    const data = {};
+    formData.forEach((value, key) => {
+        if (key === 'creditNumber' || key === 'mealCreditNumber') {
+            if (!data[key]) data[key] = [];
+            data[key].push(value);
+        } else {
+            data[key] = value;
+        }
+    });
+
+    data['phone1'] = data['phone1'] ? `'${data['phone1']}` : '';
+    data['phone2'] = data['phone2'] ? `'${data['phone2']}` : '';
+    data['companyId'] = data['companyId'] ? `'${data['companyId']}` : '';
+    data['accountLastFive'] = accountLastFive ? `'${accountLastFive.padStart(5, '0')}` : '';
+    data['mealAccountLastFive'] = mealAccountLastFive ? `'${mealAccountLastFive.padStart(5, '0')}` : '';
+    if (data.creditNumber) data.creditNumber = data.creditNumber.join('-');
+    if (data.mealCreditNumber) data.mealCreditNumber = data.mealCreditNumber.join('-');
+
+    data['roomDates'] = selectedRoomDates.join(', ');
+    data['hotelFinalAmount'] = selectedPaymentType === 'cash' ? currentCashPrice : currentCardPrice;
+    if (selectedPaymentType === 'cash') {
+        data['hotelCashAmount'] = currentCashPrice;
+    } else if (selectedPaymentType === 'card') {
+        data['hotelTotalAmount'] = currentCardPrice;
+    }
+    const youthData = [];
+    for (let i = 1; i <= 3; i++) {
+        const name = document.getElementById(`youthName${i}`).value;
+        const gender = document.querySelector(`input[name="youthGender${i}"]:checked`)?.value || '';
+        const birthdate = document.getElementById(`youthBirthdate${i}`).value;
+        const id = document.getElementById(`youthId${i}`).value;
+        if (name || gender || birthdate || id) {
+            youthData.push(`小基甸 ${i}: ${name}, ${gender}, ${birthdate}, ${id}`);
+        }
+    }
+    data['youthInfo'] = youthData.join('; ');
+
+    const confirmationHTML = `
+        <style>
+            .modal-content {
+                max-height: 60vh;
+                overflow-y: auto;
+                padding: 15px;
+                text-align: left;
+            }
+            .modal-content h3 {
+                color: var(--primary-color);
+                margin-bottom: 10px;
+                font-size: 1.3rem;
+                font-weight: 700;
+            }
+            .modal-content p {
+                margin: 4px 0;
+                font-size: 0.9rem;
+                line-height: 1.2;
+                color: var(--text-color);
+            }
+            .modal-buttons {
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+                padding: 10px 15px;
+                border-top: 1px solid var(--primary-color);
+                background: var(--bg-light);
+            }
+            .modal-buttons button {
+                padding: 8px 20px;
+                border-radius: 5px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                min-width: 100px;
+            }
+            .modal-buttons #returnBtn {
+                background: #ccc;
+                color: #333;
+                border: none;
+            }
+            .modal-buttons #returnBtn:hover {
+                background: #bbb;
+            }
+            .modal-buttons #confirmBtn {
+                background: var(--primary-color);
+                color: white;
+                border: none;
+            }
+            .modal-buttons #confirmBtn:hover {
+                background: var(--secondary-color);
+            }
+            .spinner {
+                width: 50px;
+                height: 50px;
+                border: 5px solid #f3f3f3;
+                border-top: 5px solid var(--primary-color);
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                margin: 20px auto;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .checkmark-container {
+                width: 100px;
+                height: 100px;
+                margin: 20px auto;
+            }
+            .checkmark {
+                stroke: url(#gradient);
+                stroke-width: 8;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                fill: none;
+                animation: draw 0.6s ease-in-out forwards;
+            }
+            @keyframes draw {
+                0% { stroke-dasharray: 0 120; }
+                100% { stroke-dasharray: 120 0; }
+            }
+            .confirmation-details {
+                margin-top: 20px;
+            }
+        </style>
+        <div class="modal-content" id="modalContent">
+            <h3>請確認報名資料</h3>
+            <div class="confirmation-details">
+                <p>區域: ${data.region}</p>
+                <p>支會: ${data.branch}</p>
+                <p>姓名 1: ${data.name1}</p>
+                <p>姓名 2: ${data.name2 || '無'}</p>
+                <p>電話 1: ${data.phone1}</p>
+                <p>電話 2: ${data.phone2 || '無'}</p>
+                <p>交通方式: ${transportType}${transportType === '自行開車' ? ' (車號: ' + carNumber + ')' : ''}</p>
+                <p>8/29（五）上午板橋林家花園: ${outingParticipation}${outingParticipation === '參加' ? ' (' + outingParticipants + ' 人)' : ''}</p>
+                <p>住宿類型: ${accommodationType}${accommodationType === '與人合住' ? ' (同住人: ' + sharedName + ')' : ''}</p>
+                <p>飯店: ${data.hotel || '未選擇'}</p>
+                <p>房間日期: ${data.roomDates || '未選擇'}</p>
+                <p>付款方式: ${selectedPaymentType}${selectedPaymentType === 'cash' && accountLastFive ? ' (帳號末五碼: ' + accountLastFive + ')' : ''}</p>
+                <p>飯店總金額: ${formatNumber(data.hotelFinalAmount)} 元</p>
+                <p>餐券總金額: ${document.getElementById('mealTotalAmount').textContent} 元</p>
+                <p>小基甸活動費用: ${document.getElementById('youthTotal').textContent} 元</p>
+                <p>餐券及活動付款方式: ${selectedMealPaymentMethod}${selectedMealPaymentMethod === 'cash' && mealAccountLastFive ? ' (帳號末五碼: ' + mealAccountLastFive + ')' : ''}</p>
+                <p>餐券和小基甸總計: ${document.getElementById('grandTotal').textContent} 元</p>
+                <p>住房刷卡單: ${newHotelFileName ? '已上傳 (' + newHotelFileName + ')' : '未上傳'}</p>
+                <p>餐券刷卡單: ${newMealFileName ? '已上傳 (' + newMealFileName + ')' : '未上傳'}</p>
+            </div>
+        </div>
+        <div class="modal-buttons" id="modalButtons">
+            <button id="returnBtn">返回修改</button>
+            <button id="confirmBtn">送出報名</button>
+        </div>
+    `;
+
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        background: white; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 1000; width: 90%; max-width: 600px;
+    `;
+    modal.innerHTML = confirmationHTML;
+
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5); z-index: 999;
+    `;
+
+    document.body.appendChild(overlay);
+    document.body.appendChild(modal);
+
+    const modalContent = modal.querySelector('#modalContent');
+    const modalButtons = modal.querySelector('#modalButtons');
+
+    document.getElementById('returnBtn').addEventListener('click', () => {
+        document.body.removeChild(modal);
+        document.body.removeChild(overlay);
+    });
+
+    document.getElementById('confirmBtn').addEventListener('click', () => {
+        modalContent.innerHTML = `
+            <div style="text-align: center; padding: 40px;">
+                <div class="spinner"></div>
+                <h3 style="margin-top: 20px; color: var(--primary-color);">資料送出中...請稍後</h3>
+            </div>
+        `;
+        modalButtons.style.display = 'none';
+
+        const resultDiv = document.getElementById('result');
+        const promises = [];
+
+        if (hotelFileInput && hotelFileInput.files[0]) {
+            promises.push(
+                compressImage(hotelFileInput.files[0], 1200, 0.8).then(({ blob, base64 }) => {
+                    data['hotelImageBase64'] = base64;
+                    data['hotelImageName'] = newHotelFileName;
+                }).catch(error => {
+                    throw new Error(`住房刷卡單壓縮失敗: ${error.message}`);
+                })
+            );
+        }
+
+        if (mealFileInput && mealFileInput.files[0]) {
+            promises.push(
+                compressImage(mealFileInput.files[0], 1200, 0.8).then(({ blob, base64 }) => {
+                    data['mealImageBase64'] = base64;
+                    data['mealImageName'] = newMealFileName;
+                }).catch(error => {
+                    throw new Error(`餐券刷卡單壓縮失敗: ${error.message}`);
+                })
+            );
+        }
+
+        Promise.all(promises).then(() => {
+            fetch(form.action, {
+                method: 'POST',
+                body: new URLSearchParams(data).toString(),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+            .then(response => response.text())
+            .then(result => {
+               if (result.includes('成功提交')) {
+    modalContent.innerHTML = `
+        <div style="text-align: center; padding: 40px;">
+            <div class="checkmark-container">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00cc00;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#006600;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" fill="#e6ffe6" stroke="#00cc00" stroke-width="2" />
+                    <path class="checkmark" d="M30 50 L45 65 L70 35" stroke-dasharray="0 120" stroke-dashoffset="0" />
+                </svg>
+            </div>
+            <h3 style="margin-top: 20px; color: var(--primary-color);">報名成功</h3>
+            <div class="confirmation-details">
+                <p>區域: ${data.region}</p>
+                <p>支會: ${data.branch}</p>
+                <p>姓名 1: ${data.name1}</p>
+                <p>姓名 2: ${data.name2 || '無'}</p>
+                <p>電話 1: ${data.phone1}</p>
+                <p>電話 2: ${data.phone2 || '無'}</p>
+                <p>交通方式: ${transportType}${transportType === '自行開車' ? ' (車號: ' + carNumber + ')' : ''}</p>
+                <p>8/29（五）上午板橋林家花園: ${outingParticipation}${outingParticipation === '參加' ? ' (' + outingParticipants + ' 人)' : ''}</p>
+                <p>住宿類型: ${accommodationType}${accommodationType === '與人合住' ? ' (同住人: ' + sharedName + ')' : ''}</p>
+                <p>飯店: ${data.hotel || '未選擇'}</p>
+                <p>房間日期: ${data.roomDates || '未選擇'}</p>
+                <p>付款方式: ${selectedPaymentType}${selectedPaymentType === 'cash' && accountLastFive ? ' (帳號末五碼: ' + accountLastFive + ')' : ''}</p>
+                <p>飯店總金額: ${formatNumber(data.hotelFinalAmount)} 元</p>
+                <p>餐券總金額: ${document.getElementById('mealTotalAmount').textContent} 元</p>
+                <p>小基甸活動費用: ${document.getElementById('youthTotal').textContent} 元</p>
+                <p>餐券及活動付款方式: ${selectedMealPaymentMethod}${selectedMealPaymentMethod === 'cash' && mealAccountLastFive ? ' (帳號末五碼: ' + mealAccountLastFive + ')' : ''}</p>
+                <p>餐券和小基甸總計: ${document.getElementById('grandTotal').textContent} 元</p>
+                <p>住房刷卡單: ${data['hotelImageName'] ? '已上傳 (' + data['hotelImageName'] + ')' : '未上傳'}</p>
+                <p>餐券刷卡單: ${data['mealImageName'] ? '已上傳 (' + data['mealImageName'] + ')' : '未上傳'}</p>
+            </div>
+        </div>
+    `;
+    modalButtons.innerHTML = `
+        <a href="https://gideonstw.github.io/69thGideons" target="_self">
+            <button id="closeBtn">關閉</button>
+        </a>
+    `;
+    modalButtons.style.display = 'flex';
+    modalButtons.style.justifyContent = 'center';
+    document.getElementById('closeBtn').addEventListener('click', () => {
+        document.body.removeChild(modal);
+        document.body.removeChild(overlay);
+        form.reset();
+        document.querySelectorAll('.hotel-content').forEach(content => content.classList.remove('active'));
+        document.getElementById('priceOptionsContainer').style.display = 'none';
+        document.getElementById('hotel').value = '';
+        togglePaymentSections();
+        toggleMealPaymentSections();
+        // 清除小基甸活動欄位的 required 屬性並重置值
+        const youthNames = ['youthName1', 'youthName2', 'youthName3'];
+        youthNames.forEach(id => {
+            const nameInput = document.getElementById(id);
+            const birthdateInput = document.getElementById(`youthBirthdate${id.slice(-1)}`);
+            const idInput = document.getElementById(`youthId${id.slice(-1)}`);
+            nameInput.value = '';
+            birthdateInput.value = '';
+            idInput.value = '';
+            birthdateInput.removeAttribute('required');
+            idInput.removeAttribute('required');
+        });
+        calculateYouthTotal();
+        // 清除餐券單購欄位並重置值
+        const mealInputs = [
+            'mealTicketCount', 'brotherCount', 'sisterCount',
+            'meal28DinnerCount', 'meal29LunchCount', 'meal29DinnerCount',
+            'meal30BrotherLunchCount', 'meal30SisterLunchCount'
+        ];
+        mealInputs.forEach(id => {
+            const input = document.getElementById(id);
+            if (input) input.value = '0';
+        });
+        calculateMealTotal();
+    });
+} else {
+                    modalContent.innerHTML = `
+                        <div style="text-align: center; padding: 40px;">
+                            <h3 style="color: var(--error-color);">送出失敗</h3>
+                            <p>${result}</p>
+                        </div>
+                    `;
+                    modalButtons.innerHTML = `<button id="closeBtn">關閉</button>`;
+                    modalButtons.style.display = 'flex';
+                    modalButtons.style.justifyContent = 'center';
+                    document.getElementById('closeBtn').addEventListener('click', () => {
+                        document.body.removeChild(modal);
+                        document.body.removeChild(overlay);
+                    });
+                    resultDiv.style.display = 'block';
+                    resultDiv.innerHTML = `<h3>送出失敗</h3><p>${result}</p>`;
+                }
+            })
+            .catch(error => {
+                modalContent.innerHTML = `
+                    <div style="text-align: center; padding: 40px;">
+                        <h3 style="color: var(--error-color);">送出失敗</h3>
+                        <p>發生錯誤：${error.message}</p>
+                    </div>
+                `;
+                modalButtons.innerHTML = `<button id="closeBtn">關閉</button>`;
+                modalButtons.style.display = 'flex';
+                modalButtons.style.justifyContent = 'center';
+                document.getElementById('closeBtn').addEventListener('click', () => {
+                    document.body.removeChild(modal);
+                    document.body.removeChild(overlay);
+                });
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `<h3>送出失敗</h3><p>發生錯誤：${error.message}</p>`;
+            });
+        }).catch(error => {
+            modalContent.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <h3 style="color: var(--error-color);">送出失敗</h3>
+                    <p>圖片上傳失敗：${error.message}</p>
+                </div>
+            `;
+            modalButtons.innerHTML = `<button id="closeBtn">關閉</button>`;
+            modalButtons.style.display = 'flex';
+            modalButtons.style.justifyContent = 'center';
+            document.getElementById('closeBtn').addEventListener('click', () => {
+                document.body.removeChild(modal);
+                document.body.removeChild(overlay);
+            });
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `<h3>送出失敗</h3><p>圖片上傳失敗：${error.message}</p>`;
+        });
+    });
+
+    return false;
+}
+
+document.querySelectorAll('input[name="transport"]').forEach(radio => {
+    radio.addEventListener('change', toggleCarNumberInput);
+});
+
+document.querySelectorAll('input[name="accommodationType"]').forEach(radio => {
+    radio.addEventListener('change', toggleSharedNameInput);
+});
+
+document.querySelectorAll('input[name="roomDate"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+        restrictRoomOptions();
+        updatePriceOptions();
+    });
+});
+
+document.getElementById('mealTicketCount').addEventListener('input', calculateMealTotal);
+document.getElementById('brotherCount').addEventListener('input', calculateMealTotal);
+document.getElementById('sisterCount').addEventListener('input', calculateMealTotal);
+document.getElementById('meal28DinnerCount').addEventListener('input', calculateMealTotal);
+document.getElementById('meal29LunchCount').addEventListener('input', calculateMealTotal);
+document.getElementById('meal29DinnerCount').addEventListener('input', calculateMealTotal);
+document.getElementById('meal30BrotherLunchCount').addEventListener('input', calculateMealTotal);
+document.getElementById('meal30SisterLunchCount').addEventListener('input', calculateMealTotal);
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('#youthOptions input[type="text"]').forEach(input => {
+        input.addEventListener('input', calculateYouthTotal);
+    });
+});
+
+const creditInputs = document.querySelectorAll('.credit-input');
+creditInputs.forEach((input, index) => {
+    input.addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+        validateCreditCardInputs(creditInputs, 'creditNumberError');
+        if (this.value.length === 4) {
+            if (index === 3) {
+                const expireMonth = document.querySelector('.expire-month');
+                if (expireMonth) expireMonth.focus();
+            } else {
+                const next = this.nextElementSibling?.nextElementSibling;
+                if (next && next.tagName === 'INPUT') next.focus();
+            }
+        }
+    });
+});
+
+const mealCreditInputs = document.querySelectorAll('.meal-credit-input');
+mealCreditInputs.forEach((input, index) => {
+    input.addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+        validateCreditCardInputs(mealCreditInputs, 'mealCreditNumberError');
+        if (this.value.length === 4) {
+            if (index === 3) {
+                const mealExpireMonth = document.querySelector('.meal-expire-month');
+                if (mealExpireMonth) mealExpireMonth.focus();
+            } else {
+                const next = this.nextElementSibling?.nextElementSibling;
+                if (next && next.tagName === 'INPUT') next.focus();
+            }
+        }
+    });
+});
+
+document.querySelector('.expire-month').addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '');
+    if (this.value.length === 2) {
+        const expireYear = document.querySelector('.expire-year');
+        if (expireYear) expireYear.focus();
+    }
+});
+
+document.querySelector('.expire-year').addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '');
+});
+
+document.querySelector('.meal-expire-month').addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '');
+    if (this.value.length === 2) {
+        const mealExpireYear = document.querySelector('.meal-expire-year');
+        if (mealExpireYear) mealExpireYear.focus();
+    }
+});
+
+document.querySelector('.meal-expire-year').addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '');
+});
+
+document.getElementById('hotelFileInput')?.addEventListener('change', function() { checkFileSize(this); });
+document.getElementById('mealFileInput')?.addEventListener('change', function() { checkFileSize(this); });
+
+// 新增郊遊選項的事件監聽器
+document.querySelectorAll('input[name="outingParticipation"]').forEach(radio => {
+    radio.addEventListener('change', toggleOutingInput);
+});
+
+toggleCarNumberInput();
+toggleSharedNameInput();
+updatePriceOptions();
+togglePaymentSections();
+toggleMealPaymentSections();
+calculateMealTotal();
+calculateYouthTotal();
+toggleOutingInput(); // 初始化郊遊輸入欄位狀態
+</script>
+</body>
+</html>
