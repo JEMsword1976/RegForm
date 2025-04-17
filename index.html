@@ -353,6 +353,7 @@ form {
     font-weight: 500;
 }
 
+
 .youth-row .gender-options {
     display: flex;
     gap: 15px;
@@ -1065,490 +1066,545 @@ button:hover {
 <body>
     <div class="container">
         <h1>中華民國總會第69週年全國年會</h1>
-        <h2><strong>年會報名表</strong>(含訂房、餐飲、小基甸活動) (2025.8.28-31)</h2>
-        <p>此報名表僅為展示用，請勿填入真實資料</p>
-        <p>報名結果查詢（展示用）：<a href="https://reurl.cc/j93XYL" target="_blank" >https://reurl.cc/j93XYL</a></p>
-<form id="reservationForm" action="https://script.google.com/macros/s/AKfycbxUHANLJLAeKcMHsvbfxCXZvQ5vTWU5Y6dUPvY6TGbq9sEYIMUQ9wShAtYKgUNpMaQ/exec" method="POST" onSubmit="return submitForm()">
-    <div class="section-title">1. 基本資料</div>
-          <div class="form-row basic-info-row">
-            <div class="form-group form-group-inline">
-              <label for="region"><strong>區域</strong></label>
-              <select id="region" name="region" onChange="updateBranches()">
-                <option value="">請選擇區域</option>
-                <option value="台北特區">台北特區</option>
-                <option value="北區">北區</option>
-                <option value="西北區">西北區</option>
-                <option value="台中特區">台中特區</option>
-                <option value="中區">中區</option>
-                <option value="中南區">中南區</option>
-                <option value="高雄特區">高雄特區</option>
-                <option value="南區">南區</option>
-                <option value="東區">東區</option>
-              </select>
-            </div>
-            <div class="form-group form-group-inline">
-              <label for="branch"><strong>支會</strong></label>
-              <select id="branch" name="branch">
-                <option value="">請先選擇區域</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row basic-info-row">
-            <div class="form-group form-group-inline">
-              <label for="name1"><strong>姓名 1</strong> *</label>
-              <input type="text" id="name1" name="name1" required>
-            </div>
-            <div class="form-group form-group-inline">
-              <label for="name2"><strong>姓名 2</strong></label>
-              <input type="text" id="name2" name="name2">
-            </div>
-          </div>
-          <div class="form-row basic-info-row">
-            <div class="form-group form-group-inline">
-              <label for="phone1"><strong>電話 1</strong> *</label>
-              <input type="tel" id="phone1" name="phone1" placeholder="例：0988000111" required minlength="7" maxlength="10" pattern="\d{7,10}" oninvalid="this.setCustomValidity('請輸入7到10位數字，例如 028001111 或 0988000111')" oninput="this.setCustomValidity('')">
-            </div>
-            <div class="form-group form-group-inline">
-              <label for="phone2"><strong>電話 2</strong></label>
-              <input type="tel" id="phone2" name="phone2" placeholder="例：0988000111" minlength="7" maxlength="10" pattern="\d{7,10}" oninvalid="this.setCustomValidity('請輸入7到10位數字，例如 028001111 或 0988000111，若無可留空')" oninput="this.setCustomValidity('')">
-            </div>
-          </div>
-          <div class="section-title" id="transportSection">2. 交通方式</div>
-          <div class="form-group checkbox-group" id="transportOptions">
-            <div class="checkbox-row">
-              <label>
-                <input type="radio" id="selfDriving" name="transport" value="自行開車">
-                自行開車 </label>
-              <input type="text" id="carNumber" name="carNumber" placeholder="車號" style="display: none;">
-              <label>
-                <input type="radio" id="hsr" name="transport" value="高鐵">
-                高鐵 </label>
-              <label>
-                <input type="radio" id="tra" name="transport" value="台鐵">
-                台鐵 </label>
-              <label>
-                <input type="radio" id="bus" name="transport" value="客運">
-                客運 </label>
-              <label>
-                <input type="radio" id="other" name="transport" value="其他">
-                其他 </label>
-            </div>
-          </div>
-          <!-- 新增 2-1. 郊遊 -->
-          <div class="section-title" id="outingSection">2-1. 郊遊</div>
-          <div class="form-group checkbox-group" id="outingOptions">
-            <label><strong>8/29（五）上午板橋林家花園：</strong></label>
-            <div class="checkbox-row">
-              <label>
-                <input type="radio" id="outingYes" name="outingParticipation" value="是">
-                參加 </label>
-              <input type="number" id="outingParticipants" name="outingParticipants" min="0" max="20" placeholder="人數" style="display: none;">
-              <label>
-                <input type="radio" id="outingNo" name="outingParticipation" value="否">
-                否 </label>
-            </div>
-          </div>
-          <div class="section-title" id="accommodationSection">3. 住宿選擇</div>
-          <div class="form-group checkbox-group" id="accommodationOptions">
-            <div class="accommodation-type">
-              <label class="accommodation-label"><strong>3-1 住宿發票</strong></label>
-              <div class="checkbox-row">
-                <input type="text" id="companyName" name="companyName" placeholder="公司全名">
-                <input type="text" id="companyId" name="companyId" placeholder="公司統編" maxlength="8" pattern="\d{8}" oninvalid="this.setCustomValidity('請輸入8位數字的公司統編，例如 12345678，若無可留空')" oninput="this.setCustomValidity('')">
-                 </div>
-            </div>
-            <div class="accommodation-type">
-              <label class="accommodation-label"><strong>3-2 單人或雙人：</strong></label>
-              <div class="accommodation-options">
-                <label>
-                  <input type="radio" id="single" name="accommodationType" value="單人住宿">
-                  單人住宿 </label>
-                <label>
-                  <input type="radio" id="couple" name="accommodationType" value="夫妻合住">
-                  夫妻合住 </label>
-                <label>
-                  <input type="radio" id="shared" name="accommodationType" value="與人合住">
-                  與人合住
-                  <input type="text" id="sharedName" name="sharedName" placeholder="請輸入同住人姓名" style="display: none;" class="shared-name-input">
-                </label>
-                <label>
-                  <input type="radio" id="arrangeShared" name="accommodationType" value="總會安排">
-                  由總會安排與人合住 </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group" id="housingOptions">
-            <div class="form-group checkbox-group">
-              <label><strong>3-3 請選擇飯店：</strong></label>
-              <div class="checkbox-row hotel-selection">
-                <label>
-                  <input type="radio" id="hiltonHotel" name="hotelSelection" value="希爾頓飯店" onChange="selectHotelCheckbox(this)">
-                  新板希爾頓酒店 </label>
-                <label>
-                  <input type="radio" id="caesarHotel" name="hotelSelection" value="凱撒大飯店" onChange="selectHotelCheckbox(this)">
-                  板橋凱撒大飯店 </label>
-                <label>
-                  <input type="radio" id="funHotel" name="hotelSelection" value="趣淘漫旅" onChange="selectHotelCheckbox(this)">
-                  趣淘漫旅台北 </label>
-              </div>
-            </div>
-            <div id="hotelContent1" class="hotel-content">
-              <h3>新板希爾頓飯店</h3>
-              <div class="checkbox-row"> 雙人房一大床：
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房一大床 8/28(四)" data-date="8/28">
-                  8/28(四) </label>
-              </div>
-              <div class="checkbox-row"> 雙人房一大床：
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房一大床 8/29(五)" data-date="8/29">
-                  8/29(五) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房一大床 8/30(六)" data-date="8/30">
-                  8/30(六) </label>
-              </div>
-              <div class="checkbox-row"> 雙人房二小床：
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房二小床 8/28(四)" data-date="8/28">
-                  8/28(四) </label>
-              </div>
-              <div class="checkbox-row"> 雙人房二小床：
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房二小床 8/29(五)" data-date="8/29">
-                  8/29(五) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房二小床 8/30(六)" data-date="8/30">
-                  8/30(六) </label>
-              </div>
-            </div>
-            <div id="hotelContent2" class="hotel-content">
-              <h3>板橋凱撒大飯店</h3>
-              <div class="checkbox-row"> 單人房一大床：
-                <label>
-                  <input type="checkbox" name="roomDate" value="單人房一大床 8/28(四)" data-date="8/28">
-                  8/28(四) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="單人房一大床 8/29(五)" data-date="8/29">
-                  8/29(五) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="單人房一大床 8/30(六)" data-date="8/30">
-                  8/30(六) </label>
-              </div>
-              <div class="checkbox-row"> 雙人房一大床：
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房一大床 8/28(四)" data-date="8/28">
-                  8/28(四) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房一大床 8/29(五)" data-date="8/29">
-                  8/29(五) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房一大床 8/30(六)" data-date="8/30">
-                  8/30(六) </label>
-              </div>
-              <div class="checkbox-row"> 雙人房二小床：
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房二小床 8/28(四)" data-date="8/28">
-                  8/28(四) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房二小床 8/29(五)" data-date="8/29">
-                  8/29(五) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房二小床 8/30(六)" data-date="8/30">
-                  8/30(六) </label>
-              </div>
-            </div>
-            <div id="hotelContent3" class="hotel-content">
-              <h3>趣淘漫旅台北</h3>
-              <div class="checkbox-row"> 單人房一大床：
-                <label>
-                  <input type="checkbox" name="roomDate" value="單人房一大床 8/28(四)" data-date="8/28">
-                  8/28(四) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="單人房一大床 8/29(五)" data-date="8/29">
-                  8/29(五) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="單人房一大床 8/30(六)" data-date="8/30">
-                  8/30(六) </label>
-              </div>
-              <div class="checkbox-row"> 雙人房一大床：
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房一大床 8/28(四)" data-date="8/28">
-                  8/28(四) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房一大床 8/29(五)" data-date="8/29">
-                  8/29(五) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房一大床 8/30(六)" data-date="8/30">
-                  8/30(六) </label>
-              </div>
-              <div class="checkbox-row"> 雙人房二小床：
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房二小床 8/28(四)" data-date="8/28">
-                  8/28(四) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房二小床 8/29(五)" data-date="8/29">
-                  8/29(五) </label>
-                <label>
-                  <input type="checkbox" name="roomDate" value="雙人房二小床 8/30(六)" data-date="8/30">
-                  8/30(六) </label>
-              </div>
-            </div>
-            <input type="hidden" id="hotel" name="hotel">
-          </div>
-          <div class="form-group" id="priceOptionsContainer" style="display: none;">
-            <label><strong>價格選項</strong></label>
-            <div id="priceOptions" class="price-option">
-              <label>
-                <input type="radio" name="paymentType" value="cash" onChange="togglePaymentSections()">
-                現金付款</label>
-              <label>
-                <input type="radio" name="paymentType" value="card" onChange="togglePaymentSections()">
-                刷卡付款</label>
-            </div>
-          </div>
-          <div id="creditPaymentSection" style="display: none;">
-            <div class="section-title" id="creditSection">4 飯店刷卡資訊</div>
-            <div class="form-group bank-info-container">
-              <div id="creditNumberOptions">
-                <label for="creditNumber">信用卡號</label>
-                <div class="credit-card-row">
-                  <input type="text" id="creditNumber1" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input">
-                  -
-                  <input type="text" id="creditNumber2" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input">
-                  -
-                  <input type="text" id="creditNumber3" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input">
-                  -
-                  <input type="text" id="creditNumber4" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input">
-                </div>
-              </div>
-              <div class="form-group" id="expireDateOptions">
-                <label for="expireDate">信用卡有效期限 (月/年)</label>
-                <div class="expire-date-row">
-                  <input type="text" name="expireMonth" maxlength="2" placeholder="MM" class="expire-month">
-                  /
-                  <input type="text" name="expireYear" maxlength="2" placeholder="YY" class="expire-year">
-                </div>
-              </div>
-              <div class="form-group" id="amountOptions">
-                <label for="hotelTotalAmount">飯店刷卡金額</label>
-                NT$ 
-                0
-                <input type="hidden" id="hotelTotalAmountHidden" name="hotelTotalAmount" value="0">
-              </div>
-            </div>
-          </div>
-          <div id="transferPaymentSection" style="display: none;">
-            <div class="section-title" id="transferSection">4 飯店匯款資訊</div>
-            <div class="form-group">
-              <div class="bank-info-container">
-                <div class="bank-info-row"> 銀行：
-                  中華郵政 </div>
-                <div class="bank-info-row"> 代號：
-                  700 </div>
-                <div class="bank-info-row"> 帳號：
-                  0012345-6789401 </div>
-                <div class="bank-info-row"> 戶名：
-                  社團法人中華民國總會 </div>
-                <div class="bank-info-row amount-row"> 金額：
-                  
-                  NT$ 
-                  0 </div>
-                <div class="bank-info-row note-row"> ※ 請提供匯款帳號末五碼
-                  <input type="text" id="accountLastFive" name="accountLastFive" maxlength="5" placeholder="_ _ _ _ _" pattern="\d{5}" title="請輸入5位數字">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-group"> <strong> 請選擇訂房刷卡單照片上傳 </strong>
-            <input type="file" id="hotelFileInput" name="hotelFileInput" accept="image/*">
-          </div>
-          <div class="section-title" id="mealTicketSection">5. 全套餐劵訂購 （含各餐共4張，第四張請選擇弟兄 或 姊妹）</div>
-          <div class="form-group" id="mealTicketOptions">
-            <div class="meal-ticket-row" id="mealTicketCombinedRow"> <strong>全套餐券優惠價</strong> 4,300 元 ×
-              <input type="number" id="mealTicketCount" name="mealTicketCount" min="0" max="20">
-              張 = 0 元 <strong>週六午餐：</strong>弟兄
-              <input type="number" id="brotherCount" name="brotherCount" min="0" max="20">
-              張 或 姊妹
-              <input type="number" id="sisterCount" name="sisterCount" min="0" max="20">
-              張 </div>
-            ※ 提示：全套餐券數量必須等於「弟兄數量 和 姊妹數量」請修正！
-            <div class="section-title" id="mealTicketSection">5-1 餐劵單購</div>
-            <div class="meal-container">
-              <div class="meal-item">
-                <div class="meal-item-label">8/28(四)晚餐</div>
-                <div class="meal-item-price">1,300 X</div>
-                <div class="meal-item-amount">
-                  <input type="number" id="meal28DinnerCount" name="meal28DinnerCount" min="0" max="20">
-                  張=
-                  0 元 </div>
-              </div>
-              <div class="meal-item">
-                <div class="meal-item-label">8/29(五)自助式午餐</div>
-                <div class="meal-item-price">1,000 X</div>
-                <div class="meal-item-amount">
-                  <input type="number" id="meal29LunchCount" name="meal29LunchCount" min="0" max="20">
-                  張=
-                  0 元 </div>
-              </div>
-              <div class="meal-item">
-                <div class="meal-item-label">8/29(五)牧師宴</div>
-                <div class="meal-item-price">1,300 X</div>
-                <div class="meal-item-amount">
-                  <input type="number" id="meal29DinnerCount" name="meal29DinnerCount" min="0" max="20">
-                  張=
-                  0 元 </div>
-              </div>
-              <div class="meal-item">
-                <div class="meal-item-label">8/30(六)弟兄自助式午餐</div>
-                <div class="meal-item-price">1,000 X</div>
-                <div class="meal-item-amount">
-                  <input type="number" id="meal30BrotherLunchCount" name="meal30BrotherLunchCount" min="0" max="20">
-                  張=
-                  0 元 </div>
-              </div>
-              <div class="meal-item">
-                <div class="meal-item-label sister">8/30(六)姊妹自助式午餐</div>
-                <div class="meal-item-price sister">1,000 X</div>
-                <div class="meal-item-amount">
-                  <input type="number" id="meal30SisterLunchCount" name="meal30SisterLunchCount" min="0" max="20">
-                  張=
-                  0 元 </div>
-              </div>
-              <div class="meal-item total">
-                <div class="meal-item-label">合計</div>
-                <div class="meal-item-amount"> 0 元 </div>
-              </div>
-            </div>
-          </div>
-          <div class="section-title" id="youthSection">6. 小基甸活動</div>
-          <div class="form-group" id="youthOptions">
-            <div class="youth-container">
-              <div class="youth-row">
-                <div class="youth-label">姓名</div>
-                <div class="youth-label">性別</div>
-                <div class="youth-label">生日</div>
-                <div class="youth-label">身分證字號</div>
-              </div>
-              <div class="youth-row">
-                <input type="text" name="youthName1" id="youthName1" placeholder="姓名">
-                <div class="gender-options">
-                  <label>
-                    <input type="radio" name="youthGender1" value="男">
-                    男</label>
-                  <label>
-                    <input type="radio" name="youthGender1" value="女">
-                    女</label>
-                </div>
-                <input type="text" name="youthBirthdate1" id="youthBirthdate1" placeholder="例：19990101" class="youth-birthdate">
-                <input type="text" name="youthId1" id="youthId1" maxlength="10" placeholder="例：A123666888" class="youth-id">
-              </div>
-              <div class="youth-row">
-                <input type="text" name="youthName2" id="youthName2" placeholder="姓名">
-                <div class="gender-options">
-                  <label>
-                    <input type="radio" name="youthGender2" value="男">
-                    男</label>
-                  <label>
-                    <input type="radio" name="youthGender2" value="女">
-                    女</label>
-                </div>
-                <input type="text" name="youthBirthdate2" id="youthBirthdate2" placeholder="例：19990101" class="youth-birthdate">
-                <input type="text" name="youthId2" id="youthId2" maxlength="10" placeholder="例：A123666888" class="youth-id">
-              </div>
-              <div class="youth-row">
-                <input type="text" name="youthName3" id="youthName3" placeholder="姓名">
-                <div class="gender-options">
-                  <label>
-                    <input type="radio" name="youthGender3" value="男">
-                    男</label>
-                  <label>
-                    <input type="radio" name="youthGender3" value="女">
-                    女</label>
-                </div>
-                <input type="text" name="youthBirthdate3" id="youthBirthdate3" placeholder="例：19990101" class="youth-birthdate">
-                <input type="text" name="youthId3" id="youthId3" maxlength="10" placeholder="例：A123666888" class="youth-id">
-              </div>
-            </div>
-            <div class="form-group">
-              <label>小計：0 人 × 1,000 元 = 0 元</label>
-              <label><strong>總計：餐劵費用(0)+活動費用(0)=0 元</strong></label>
-            </div>
-          </div>
-          <div class="form-group" id="mealPaymentOptions">
-            <label><strong>6-1 餐劵及活動費付款方式</strong></label>
-            <div class="price-option">
-              <label>
-                <input type="radio" name="mealPaymentMethod" value="cash" onChange="toggleMealPaymentSections()">
-                現金付款</label>
-              <label>
-                <input type="radio" name="mealPaymentMethod" value="card" onChange="toggleMealPaymentSections()">
-                刷卡付款</label>
-            </div>
-          </div>
-          <div id="mealTransferPaymentSection" style="display: none;">
-            <div class="section-title" id="mealTransferSection">7. 餐券及小基甸活動匯款</div>
-            <div class="form-group">
-              <div class="bank-info-container">
-                <div class="bank-info-row"> 銀行：
-                  中華郵政 </div>
-                <div class="bank-info-row"> 代號：
-                  700 </div>
-                <div class="bank-info-row"> 帳號：
-                  0012345-6789401 </div>
-                <div class="bank-info-row"> 戶名：
-                  社團法人中華民國總會 </div>
-                <div class="bank-info-row amount-row"> 金額：
-                  
-                  NT$ 
-                  0 </div>
-                <div class="bank-info-row note-row"> ※ 請務必提供帳號末五碼
-                  <input type="text" id="mealAccountLastFive" name="mealAccountLastFive" maxlength="5" placeholder="_ _ _ _ _" pattern="\d{5}" title="請輸入5位數字">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="mealCreditPaymentSection" style="display: none;">
-            <div class="section-title" id="mealCreditSection">7. 餐券及小基甸活動費刷卡付款資訊</div>
-            <div class="form-group bank-info-container">
-              <div class="form-group" id="mealCreditNumberOptions">
-                <label for="mealCreditNumber">信用卡號</label>
-                <div class="credit-card-row">
-                  <input type="text" id="mealCreditNumber1" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input">
-                  -
-                  <input type="text" id="mealCreditNumber2" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input">
-                  -
-                  <input type="text" id="mealCreditNumber3" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input">
-                  -
-                  <input type="text" id="mealCreditNumber4" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input">
-                </div>
-              </div>
-              <div class="form-group" id="mealExpireDateOptions">
-                <label for="mealExpireDate">信用卡有效期限 (月/年)</label>
-                <div class="expire-date-row">
-                  <input type="text" name="mealExpireMonth" maxlength="2" placeholder="MM" class="meal-expire-month">
-                  /
-                  <input type="text" name="mealExpireYear" maxlength="2" placeholder="YY" class="meal-expire-year">
-                </div>
-              </div>
-              <div class="form-group" id="mealAmountOptions">
-                <label for="mealGrandTotalAmountCard">餐券及活動刷卡金額 (NT$)</label>
-                NT$ 
-                0
-                <input type="hidden" id="mealGrandTotalAmountCardHidden" name="mealGrandTotalAmountCard" value="0">
-              </div>
-            </div>
-          </div>
-          <div class="form-group"> <strong> 請選擇餐券刷卡單照片上傳</strong>
-            <input type="file" id="mealFileInput" name="mealFileInput" accept="image/*">
-            <label for="specialRequests"><strong>特別備註</strong></label>
-            <textarea id="specialRequests" name="specialRequests" rows="4"></textarea>
-          </div>
-          <input type="hidden" id="youthTotalHidden" name="youthTotal" value="0">
-          <input type="hidden" id="hotelFinalAmount" name="hotelFinalAmount" value="0">
-          <button type="submit">送出報名</button>
-      </form>
-        <div id="result" class="result"></div>
+      <h2><strong>年會報名表</strong>(含訂房、餐飲、小青年活動) (2025.8.28-31)</h2>
+      <p><br>
+          此報名表僅為展示用，請勿填入真實資料</p>
+        <p>&nbsp;報名結果查詢（展示用）：<a href="https://reurl.cc/j93XYL">https://reurl.cc/j93XYL </a> </p>
+        <form id="reservationForm" action="https://script.google.com/macros/s/AKfycbwAOiFjcuNrN11vITq186eyG7fLdIuu385pagCeTVeqFiqXZ5Lu9iWQr5juBc4LnYzO/exec" method="POST" onsubmit="return submitForm()">
+          <div class="section-title">1. 基本資料</div>
+<div class="form-row basic-info-row">
+    <div class="form-group form-group-inline">
+        <label for="region"><strong>區域</strong></label>
+        <select id="region" name="region" onchange="updateBranches()">
+          <option value="">請選擇區域</option>
+            <option value="台北特區">台北特區</option>
+            <option value="北區">北區</option>
+            <option value="西北區">西北區</option>
+            <option value="台中特區">台中特區</option>
+            <option value="中區">中區</option>
+            <option value="中南區">中南區</option>
+            <option value="高雄特區">高雄特區</option>
+            <option value="南區">南區</option>
+            <option value="東區">東區</option>
+        </select>
+    </div>
+    <div class="form-group form-group-inline">
+        <label for="branch"><strong>支會</strong></label>
+        <select id="branch" name="branch">
+          <option value="">請先選擇區域</option>
+        </select>
+    </div>
 </div>
+<div class="form-row basic-info-row">
+    <div class="form-group form-group-inline">
+        <label for="name1"><strong>姓名 1</strong> *</label>
+        <input type="text" id="name1" name="name1" required/>
+    </div>
+    <div class="form-group form-group-inline">
+        <label for="name2"><strong>姓名 2</strong></label>
+        <input type="text" id="name2" name="name2"/>
+    </div>
+</div>
+<div class="form-row basic-info-row">
+    <div class="form-group form-group-inline">
+        <label for="phone1"><strong>電話 1</strong> *</label>
+        <input type="tel" id="phone1" name="phone1" placeholder="例：0988000111" required minlength="7" maxlength="10" pattern="\d{7,10}" oninvalid="this.setCustomValidity('請輸入7到10位數字，例如 028001111 或 0988000111')" oninput="this.setCustomValidity('')"/>
+    </div>
+    <div class="form-group form-group-inline">
+        <label for="phone2"><strong>電話 2</strong></label>
+        <input type="tel" id="phone2" name="phone2" placeholder="例：0988000111" minlength="7" maxlength="10" pattern="\d{7,10}" oninvalid="this.setCustomValidity('請輸入7到10位數字，例如 028001111 或 0988000111，若無可留空')" oninput="this.setCustomValidity('')"/>
+    </div>
+</div>
+
+            <div class="section-title" id="transportSection">2. 交通方式</div>
+            <div class="form-group checkbox-group" id="transportOptions">
+                <div class="checkbox-row">
+                    <label>
+                        <input type="radio" id="selfDriving" name="transport" value="自行開車"/>
+                        自行開車
+                  </label>
+                    <input type="text" id="carNumber" name="carNumber" placeholder="車號" style="display: none;"/>
+                    <label>
+                        <input type="radio" id="hsr" name="transport" value="高鐵"/>
+                        高鐵
+                  </label>
+                    <label>
+                        <input type="radio" id="tra" name="transport" value="台鐵"/>
+                        台鐵
+                  </label>
+                    <label>
+                        <input type="radio" id="bus" name="transport" value="客運"/>
+                        客運
+                  </label>
+                    <label>
+                        <input type="radio" id="other" name="transport" value="其他"/>
+                        其他
+                  </label>
+                </div>
+            </div>
+
+            <!-- 新增 2-1. 郊遊 -->
+            <div class="section-title" id="outingSection">2-1. 郊遊</div>
+            <div class="form-group checkbox-group" id="outingOptions">
+                <label><strong>8/29（五）上午板橋林家花園：</strong></label>
+                <div class="checkbox-row">
+                    <label>
+                        <input type="radio" id="outingYes" name="outingParticipation" value="是"/>
+                        參加
+                    </label>
+                    <input type="number" id="outingParticipants" name="outingParticipants" min="0" max="20" placeholder="人數" style="display: none;" />
+                    <label>
+                        <input type="radio" id="outingNo" name="outingParticipation" value="否"/>
+                        否
+                    </label>
+                </div>
+            </div>
+
+<div class="section-title" id="accommodationSection">3. 住宿選擇</div>
+<div class="form-group checkbox-group" id="accommodationOptions">
+    <div class="accommodation-type">
+    <label class="accommodation-label"><strong>3-1 住宿發票</strong></label>
+    <div class="checkbox-row">
+        <input type="text" id="companyName" name="companyName" placeholder="公司全名"/>
+        <input type="text" id="companyId" name="companyId" placeholder="公司統編" maxlength="8" pattern="\d{8}" oninvalid="this.setCustomValidity('請輸入8位數字的公司統編，例如 12345678，若無可留空')" oninput="this.setCustomValidity('')"/>
+</div>
+</div>
+    <div class="accommodation-type">
+        <label class="accommodation-label"><strong>3-2 單人或雙人：</strong></label>
+        <div class="accommodation-options">
+            <label>
+                <input type="radio" id="single" name="accommodationType" value="單人住宿"/>
+                單人住宿
+            </label>
+            <label>
+                <input type="radio" id="couple" name="accommodationType" value="夫妻合住"/>
+                夫妻合住
+            </label>
+            <label>
+                <input type="radio" id="shared" name="accommodationType" value="與人合住"/>
+                與人合住
+                <input type="text" id="sharedName" name="sharedName" placeholder="請輸入同住人姓名" style="display: none;" class="shared-name-input"/>
+            </label>
+            <label>
+                <input type="radio" id="arrangeShared" name="accommodationType" value="總會安排"/>
+                由總會安排與人合住
+            </label>
+        </div>
+    </div>
+</div>
+
+            <div class="form-group" id="housingOptions">
+                <div class="form-group checkbox-group">
+                     <label><strong>3-3 請選擇飯店：</strong></label>
+                     <div class="checkbox-row hotel-selection">
+                       
+                        <label>
+                          <input type="radio" id="hiltonHotel" name="hotelSelection" value="希爾頓飯店" onchange="selectHotelCheckbox(this)"/> 新板希爾頓酒店
+                       </label>
+                        <label>
+                            <input type="radio" id="caesarHotel" name="hotelSelection" value="凱撒大飯店" onchange="selectHotelCheckbox(this)"/> 板橋凱撒大飯店
+                       </label>
+                        <label>
+                            <input type="radio" id="funHotel" name="hotelSelection" value="趣淘漫旅" onchange="selectHotelCheckbox(this)"/> 趣淘漫旅台北
+                       </label>
+                    </div>
+                </div>
+                <div id="hotelContent1" class="hotel-content">
+                    <h3>新板希爾頓飯店</h3>
+                    <div class="checkbox-row">
+                        <span>雙人房一大床：</span>
+                        <label>
+                          <input type="checkbox" name="roomDate" value="雙人房一大床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房一大床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房二小床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房二小床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                </div>
+                <div id="hotelContent2" class="hotel-content">
+                    <h3>板橋凱撒大飯店</h3>
+                    <div class="checkbox-row">
+                        <span>單人房一大床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房一大床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房二小床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                </div>
+                <div id="hotelContent3" class="hotel-content">
+                    <h3>趣淘漫旅台北</h3>
+                    <div class="checkbox-row">
+                        <span>單人房一大床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="單人房一大床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房一大床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房一大床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                    <div class="checkbox-row">
+                        <span>雙人房二小床：</span>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/28(四)" data-date="8/28"/> 8/28(四)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/29(五)" data-date="8/29"/> 8/29(五)
+                      </label>
+                        <label>
+                            <input type="checkbox" name="roomDate" value="雙人房二小床 8/30(六)" data-date="8/30"/> 8/30(六)
+                      </label>
+                    </div>
+                </div>
+                <input type="hidden" id="hotel" name="hotel"/>
+            </div>
+            <div class="form-group" id="priceOptionsContainer" style="display: none;">
+                <label><strong>價格選項</strong></label>
+                <div id="priceOptions" class="price-option">
+                    <label><input type="radio" name="paymentType" value="cash" onchange="togglePaymentSections()"/> 現金付款</label>
+                    <label><input type="radio" name="paymentType" value="card" onchange="togglePaymentSections()"/> 刷卡付款</label>
+                    <span id="priceDisplay"></span>
+                    <span id="discountInfo" class="discount-info"></span>
+                </div>
+            </div>
+
+            <div id="creditPaymentSection" style="display: none;">
+    <div class="section-title" id="creditSection">4 飯店刷卡資訊</div>
+    <div class="form-group bank-info-container">
+        <div id="creditNumberOptions">
+            <label for="creditNumber">信用卡號</label>
+            <div class="credit-card-row">
+                <input type="text" id="creditNumber1" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input"/>
+                <span>-</span>
+                <input type="text" id="creditNumber2" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input"/>
+                <span>-</span>
+                <input type="text" id="creditNumber3" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input"/>
+                <span>-</span>
+                <input type="text" id="creditNumber4" name="creditNumber" maxlength="4" placeholder="xxxx" class="credit-input"/>
+            </div>
+            <span id="creditNumberError" style="color: var(--error-color); font-size: 0.9rem; display: none;"></span>
+        </div>
+        <div class="form-group" id="expireDateOptions">
+            <label for="expireDate">信用卡有效期限 (月/年)</label>
+            <div class="expire-date-row">
+                <input type="text" name="expireMonth" maxlength="2" placeholder="MM" class="expire-month"/>
+                <span>/</span>
+                <input type="text" name="expireYear" maxlength="2" placeholder="YY" class="expire-year"/>
+            </div>
+        </div>
+       <div class="form-group" id="amountOptions">
+    <label for="hotelTotalAmount">飯店刷卡金額</label>
+    <span>
+        <span class="amount-prefix">NT$ </span>
+        <span id="hotelTotalAmount" class="amount-value">0</span>
+        <input type="hidden" id="hotelTotalAmountHidden" name="hotelTotalAmount" value="0"/>
+    </span>
+</div>
+    </div>
+</div>
+
+           <div id="transferPaymentSection" style="display: none;">
+    <div class="section-title" id="transferSection">4 飯店匯款資訊</div>
+    <div class="form-group">
+        <div class="bank-info-container">
+            <div class="bank-info-row">
+                <span class="bank-label">銀行：</span>
+                <span class="bank-detail">中華郵政</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">代號：</span>
+                <span class="bank-detail">700</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">帳號：</span>
+                <span class="bank-detail">0012345-8888999</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">戶名：</span>
+                <span class="bank-detail">社團法人中華民國總會</span>
+            </div>
+            <div class="bank-info-row amount-row">
+                <span class="bank-label">金額：</span>
+                <span class="bank-detail amount-highlight">
+                    <span class="amount-prefix">NT$ </span>
+                    <span id="hotelCashAmount" class="amount-value">0</span>
+                </span>
+            </div>
+           <div class="bank-info-row note-row">
+    <span class="bank-note">※ 請提供匯款帳號末五碼</span>
+    <input type="text" id="accountLastFive" name="accountLastFive" maxlength="5" placeholder="_ _ _ _ _" pattern="\d{5}" title="請輸入5位數字"/>
+</div>
+        </div>
+    </div>
+</div>
+<div class="form-group"> <strong> 請選擇訂房刷卡單照片上傳 </strong>
+  <input type="file" id="hotelFileInput" name="hotelFileInput" accept="image/*">
+</DIV>
+  
+          <div class="section-title" id="mealTicketSection">5. 全套餐劵訂購 （含各餐共4張，第四張請選擇弟兄 或 姊妹）</div>
+            <div class="form-group" id="mealTicketOptions">
+    <div class="meal-ticket-row" id="mealTicketCombinedRow">
+        <span><strong>全套餐券優惠價</strong> 4,300 元 ×</span>
+        <input type="number" id="mealTicketCount" name="mealTicketCount" min="0" max="20"/>
+        <span>張 = <span id="mealTicketAmount" class="meal-ticket-amount">0</span> 元</span>
+        <span class="meal-ticket-label"><strong>週六午餐：</strong>弟兄</span>
+        <input type="number" id="brotherCount" name="brotherCount" min="0" max="20"/>
+        <span>張 或 姊妹</span>
+        <input type="number" id="sisterCount" name="sisterCount" min="0" max="20" />
+        <span>張</span>
+    </div>
+    <span id="mealCountError" style="color: var(--error-color); font-size: 0.9rem; display: none;">※ 提示：全套餐券數量必須等於「弟兄數量 和 姊妹數量」請修正！</span>
+    <div class="section-title" id="mealTicketSection">5-1 餐劵單購</div>
+    <div class="meal-container">
+                    <div class="meal-item">
+                        <div class="meal-item-label">8/28(四)晚餐</div>
+                        <div class="meal-item-price">1,300 X</div>
+                        <div class="meal-item-amount">
+                            <input type="number" id="meal28DinnerCount" name="meal28DinnerCount" min="0" max="20"/>
+                            <span>張=</span>
+                            <span id="meal28DinnerTotal" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+                    <div class="meal-item">
+                        <div class="meal-item-label">8/29(五)自助式午餐</div>
+                        <div class="meal-item-price">1,000 X</div>
+                        <div class="meal-item-amount">
+                            <input type="number" id="meal29LunchCount" name="meal29LunchCount" min="0"  min="0" max="20"/>
+                            <span>張=</span>
+                            <span id="meal29LunchTotal" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+                    <div class="meal-item">
+                        <div class="meal-item-label">8/29(五)牧師宴</div>
+                        <div class="meal-item-price">1,300 X</div>
+                        <div class="meal-item-amount">
+                            <input type="number" id="meal29DinnerCount" name="meal29DinnerCount" min="0" min="0" max="20"/>
+                            <span>張=</span>
+                            <span id="meal29DinnerTotal" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+                    <div class="meal-item">
+                        <div class="meal-item-label">8/30(六)弟兄自助式午餐</div>
+                        <div class="meal-item-price">1,000 X</div>
+                        <div class="meal-item-amount">
+                            <input type="number" id="meal30BrotherLunchCount" name="meal30BrotherLunchCount" min="0" min="0" max="20"/>
+                            <span>張=</span>
+                            <span id="meal30BrotherLunchTotal" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+                    <div class="meal-item">
+                        <div class="meal-item-label sister">8/30(六)姊妹自助式午餐</div>
+                        <div class="meal-item-price sister">1,000 X</div>
+                        <div class="meal-item-amount">
+                            <input type="number" id="meal30SisterLunchCount" name="meal30SisterLunchCount" min="0" min="0" max="20"/>
+                            <span>張=</span>
+                            <span id="meal30SisterLunchTotal" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+                    <div class="meal-item total">
+                        <div class="meal-item-label">合計</div>
+                        <div class="meal-item-amount">
+                            <span id="mealTotalAmount" class="meal-total-amount">0</span> 元
+                        </div>
+                    </div>
+              </div>
+          </div>
+
+           <div class="section-title" id="youthSection">6. 小青年活動</div>
+<div class="form-group" id="youthOptions">
+    <div class="youth-container">
+        <div class="youth-row">
+            <div class="youth-label">姓名</div>
+            <div class="youth-label">性別</div>
+            <div class="youth-label">生日</div>
+            <div class="youth-label">身分證字號</div>
+        </div>
+        <div class="youth-row">
+            <input type="text" name="youthName1" id="youthName1" placeholder="姓名"/>
+            <div class="gender-options">
+                <label><input type="radio" name="youthGender1" value="男"/> 男</label>
+                <label><input type="radio" name="youthGender1" value="女"/> 女</label>
+            </div>
+            <input type="text" name="youthBirthdate1" id="youthBirthdate1" placeholder="例：19990101" class="youth-birthdate"/>
+            <input type="text" name="youthId1" id="youthId1" maxlength="10" placeholder="例：A123666888" class="youth-id"/>
+        </div>
+        <div class="youth-row">
+            <input type="text" name="youthName2" id="youthName2" placeholder="姓名"/>
+            <div class="gender-options">
+                <label><input type="radio" name="youthGender2" value="男"/> 男</label>
+                <label><input type="radio" name="youthGender2" value="女"/> 女</label>
+            </div>
+            <input type="text" name="youthBirthdate2" id="youthBirthdate2" placeholder="例：19990101" class="youth-birthdate"/>
+            <input type="text" name="youthId2" id="youthId2" maxlength="10" placeholder="例：A123666888" class="youth-id"/>
+        </div>
+        <div class="youth-row">
+            <input type="text" name="youthName3" id="youthName3" placeholder="姓名"/>
+            <div class="gender-options">
+                <label><input type="radio" name="youthGender3" value="男"/> 男</label>
+                <label><input type="radio" name="youthGender3" value="女"/> 女</label>
+            </div>
+            <input type="text" name="youthBirthdate3" id="youthBirthdate3" placeholder="例：19990101" class="youth-birthdate"/>
+            <input type="text" name="youthId3" id="youthId3" maxlength="10" placeholder="例：A123666888" class="youth-id"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>小計：<span id="youthSubtotal" class="youth-subtotal">0</span> 人 × 1,000 元 = <span id="youthTotal" class="youth-subtotal">0</span> 元</label>
+        <label><strong>總計：餐劵費用(<span id="mealTotalDisplay" class="total-amount">0</span>)+活動費用(<span id="youthTotalDisplay" class="total-amount">0</span>)=<span id="grandTotal" class="total-amount">0</span> 元</strong></label>
+    </div>
+</div>
+
+            <div class="form-group" id="mealPaymentOptions">
+                <label><strong>6-1 餐劵及活動費付款方式</strong></label>
+                <div class="price-option">
+                  <label><input type="radio" name="mealPaymentMethod" value="cash" onchange="toggleMealPaymentSections()"/> 現金付款</label>
+                    <label><input type="radio" name="mealPaymentMethod" value="card" onchange="toggleMealPaymentSections()"/> 刷卡付款</label>
+                </div>
+            </div>
+
+            <div id="mealTransferPaymentSection" style="display: none;">
+    <div class="section-title" id="mealTransferSection">7. 餐券及小青年活動匯款</div>
+    <div class="form-group">
+        <div class="bank-info-container">
+            <div class="bank-info-row">
+                <span class="bank-label">銀行：</span>
+                <span class="bank-detail">中華郵政</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">代號：</span>
+                <span class="bank-detail">700</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">帳號：</span>
+                <span class="bank-detail">0012345-8888999</span>
+            </div>
+            <div class="bank-info-row">
+                <span class="bank-label">戶名：</span>
+                <span class="bank-detail">社團法人中華民國總會</span>
+            </div>
+            <div class="bank-info-row amount-row">
+                <span class="bank-label">金額：</span>
+                <span class="bank-detail amount-highlight">
+                    <span class="amount-prefix">NT$ </span>
+                    <span id="mealGrandTotalAmountCash" class="amount-value">0</span>
+                </span>
+            </div>
+            <div class="bank-info-row note-row">
+    <span class="bank-note">※ 請務必提供帳號末五碼</span>
+    <input type="text" id="mealAccountLastFive" name="mealAccountLastFive" maxlength="5" placeholder="_ _ _ _ _" pattern="\d{5}" title="請輸入5位數字"/>
+</div>
+        </div>
+    </div>
+</div>
+
+           <div id="mealCreditPaymentSection" style="display: none;">
+    <div class="section-title" id="mealCreditSection">7. 餐券及小青年活動費刷卡付款資訊</div>
+    <div class="form-group bank-info-container">
+        <div class="form-group" id="mealCreditNumberOptions">
+            <label for="mealCreditNumber">信用卡號</label>
+            <div class="credit-card-row">
+                <input type="text" id="mealCreditNumber1" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input"/>
+                <span>-</span>
+                <input type="text" id="mealCreditNumber2" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input"/>
+                <span>-</span>
+                <input type="text" id="mealCreditNumber3" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input"/>
+                <span>-</span>
+                <input type="text" id="mealCreditNumber4" name="mealCreditNumber" maxlength="4" placeholder="xxxx" class="meal-credit-input"/>
+            </div>
+            <span id="mealCreditNumberError" style="color: var(--error-color); font-size: 0.9rem; display: none;"></span>
+        </div>
+        <div class="form-group" id="mealExpireDateOptions">
+            <label for="mealExpireDate">信用卡有效期限 (月/年)</label>
+            <div class="expire-date-row">
+                <input type="text" name="mealExpireMonth" maxlength="2" placeholder="MM" class="meal-expire-month"/>
+                <span>/</span>
+                <input type="text" name="mealExpireYear" maxlength="2" placeholder="YY" class="meal-expire-year"/>
+            </div>
+        </div>
+       <div class="form-group" id="mealAmountOptions">
+    <label for="mealGrandTotalAmountCard">餐券及活動刷卡金額 (NT$)</label>
+    <span>
+        <span class="amount-prefix">NT$ </span>
+        <span id="mealGrandTotalAmountCard" class="amount-value">0</span>
+        <input type="hidden" id="mealGrandTotalAmountCardHidden" name="mealGrandTotalAmountCard" value="0"/>
+    </span>
+</div>
+    </div>
+</div>
+
+            <div class="form-group"> <strong> 請選擇餐券刷卡單照片上傳</strong>
+              <input type="file" id="mealFileInput" name="mealFileInput" accept="image/*">
+              <label for="specialRequests"><strong>特別備註</strong></label>
+                <textarea id="specialRequests" name="specialRequests" rows="4"></textarea>
+          </div>
+            <input type="hidden" id="youthTotalHidden" name="youthTotal" value="0"/>
+            <input type="hidden" id="hotelFinalAmount" name="hotelFinalAmount" value="0"/>
+            <button type="submit">送出報名</button>
+      </form><div id="result" class="result"></div>
+	</div>
   <script>
 const branchesByRegion = {
     '台北特區': ['北一', '北二', '北三', '北四', '北五', '北六', '北七', '北八', '北九', '北十', '金門', '馬祖'],
@@ -2003,7 +2059,7 @@ function submitForm() {
         const youthId = document.getElementById(`youthId${id.slice(-1)}`).value.trim();
 
         if (name && (!birthdate || !youthId)) {
-            alert('小基甸活動：若填寫姓名，生日和身份證字號為必填項，請補全資料');
+            alert('小青年活動：若填寫姓名，生日和身份證字號為必填項，請補全資料');
             document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'center' });
             return false;
         }
@@ -2118,7 +2174,7 @@ function submitForm() {
         const birthdate = document.getElementById(`youthBirthdate${i}`).value;
         const id = document.getElementById(`youthId${i}`).value;
         if (name || gender || birthdate || id) {
-            youthData.push(`小基甸 ${i}: ${name}, ${gender}, ${birthdate}, ${id}`);
+            youthData.push(`小青年 ${i}: ${name}, ${gender}, ${birthdate}, ${id}`);
         }
     }
     data['youthInfo'] = youthData.join('; ');
@@ -2226,9 +2282,9 @@ function submitForm() {
                 <p>付款方式: ${selectedPaymentType}${selectedPaymentType === 'cash' && accountLastFive ? ' (帳號末五碼: ' + accountLastFive + ')' : ''}</p>
                 <p>飯店總金額: ${formatNumber(data.hotelFinalAmount)} 元</p>
                 <p>餐券總金額: ${document.getElementById('mealTotalAmount').textContent} 元</p>
-                <p>小基甸活動費用: ${document.getElementById('youthTotal').textContent} 元</p>
+                <p>小青年活動費用: ${document.getElementById('youthTotal').textContent} 元</p>
                 <p>餐券及活動付款方式: ${selectedMealPaymentMethod}${selectedMealPaymentMethod === 'cash' && mealAccountLastFive ? ' (帳號末五碼: ' + mealAccountLastFive + ')' : ''}</p>
-                <p>餐券和小基甸總計: ${document.getElementById('grandTotal').textContent} 元</p>
+                <p>餐券和小青年總計: ${document.getElementById('grandTotal').textContent} 元</p>
                 <p>住房刷卡單: ${newHotelFileName ? '已上傳 (' + newHotelFileName + ')' : '未上傳'}</p>
                 <p>餐券刷卡單: ${newMealFileName ? '已上傳 (' + newMealFileName + ')' : '未上傳'}</p>
             </div>
@@ -2337,9 +2393,9 @@ function submitForm() {
                 <p>付款方式: ${selectedPaymentType}${selectedPaymentType === 'cash' && accountLastFive ? ' (帳號末五碼: ' + accountLastFive + ')' : ''}</p>
                 <p>飯店總金額: ${formatNumber(data.hotelFinalAmount)} 元</p>
                 <p>餐券總金額: ${document.getElementById('mealTotalAmount').textContent} 元</p>
-                <p>小基甸活動費用: ${document.getElementById('youthTotal').textContent} 元</p>
+                <p>小青年活動費用: ${document.getElementById('youthTotal').textContent} 元</p>
                 <p>餐券及活動付款方式: ${selectedMealPaymentMethod}${selectedMealPaymentMethod === 'cash' && mealAccountLastFive ? ' (帳號末五碼: ' + mealAccountLastFive + ')' : ''}</p>
-                <p>餐券和小基甸總計: ${document.getElementById('grandTotal').textContent} 元</p>
+                <p>餐券和小青年總計: ${document.getElementById('grandTotal').textContent} 元</p>
                 <p>住房刷卡單: ${data['hotelImageName'] ? '已上傳 (' + data['hotelImageName'] + ')' : '未上傳'}</p>
                 <p>餐券刷卡單: ${data['mealImageName'] ? '已上傳 (' + data['mealImageName'] + ')' : '未上傳'}</p>
             </div>
@@ -2361,7 +2417,7 @@ function submitForm() {
         document.getElementById('hotel').value = '';
         togglePaymentSections();
         toggleMealPaymentSections();
-        // 清除小基甸活動欄位的 required 屬性並重置值
+        // 清除小青年活動欄位的 required 屬性並重置值
         const youthNames = ['youthName1', 'youthName2', 'youthName3'];
         youthNames.forEach(id => {
             const nameInput = document.getElementById(id);
